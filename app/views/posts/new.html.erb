@@ -1,0 +1,13 @@
+<div class="container">
+  <div class="row">
+    <div class="new-form">
+      <h1>Add a game</h1>
+        <%= simple_form_for [@game, @post] do |f| %>
+          <%= f.input :title, placeholder: "Title" %>
+          <%= f.input :content, placeholder: "Content" %>
+          <%= f.input :category, as: :hidden, input_html: { value: params[:category] || "post" } %>
+          <%= f.button :submit, "Add now!", class: "submit button" %>
+        <% end %>
+    </div>
+  </div>
+</div>
