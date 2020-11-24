@@ -1,0 +1,23 @@
+
+<div class="hero">
+  <h2>Here we will Have our big nice games displays</h2>
+</div>
+
+<div class="main">
+  <div class="filters">
+  </div>
+
+  <div class="display-games">
+    <h1>Welcome To LevelUP</h1>
+
+    <% @games.each do |game| %>
+      <ol>
+        <li><h5><%= link_to game.title, game_path(game) %></h5></li>
+      </ol>
+      <ul>
+          <li><%=game.category %></li>
+          <li><%= game.description %></li>
+      </ul>
+    <%end%>
+  </div>
+</div>
