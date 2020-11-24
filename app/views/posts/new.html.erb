@@ -1,6 +1,7 @@
 <div class="container">
-    <div class="new-form">
-      <h1 class="text-center">Add a game</h1>
+  <div class="row d-flex justify-content-center form-container">
+    <div class="col-8 new-form">
+      <h1 class="text-center">Add a post</h1>
         <%= simple_form_for [@game, @post] do |f| %>
           <%= f.input :title, placeholder: "Title" %>
           <%= f.input :content, placeholder: "Content" %>
@@ -8,4 +9,5 @@
           <%= f.button :submit, "Add now!", class: "btn btn-success submit-button" %>
         <% end %>
     </div>
+  </div>
 </div>
