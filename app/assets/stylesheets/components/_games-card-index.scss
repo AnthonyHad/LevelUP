@@ -1,0 +1,40 @@
+.games-card {
+  width: 250px;
+  height: 330px;
+  margin-bottom: 75px;
+}
+
+.game-image {
+  border-radius: 10px 10px 0px 0px;
+  width: 250px;
+  height: 220px;
+}
+
+.game-card-info {
+  background: #1F1F1F;
+  border-radius: 0px 0px 10px 10px;
+  a {
+    color: $ghost-white;
+    font: $body-font;
+  }
+}
+
+.game-tag {
+  color: $light-purple;
+  font: $body-font;
+  font-weight: 500;
+  font-size: 11px;
+  line-height: 15px;
+  letter-spacing: -0.015em;
+}
+
+.game-description {
+  color: $ghost-white;
+  font-family: $body-font;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 11px;
+  line-height: 14px;
+  letter-spacing: -0.015em;
+
+}
