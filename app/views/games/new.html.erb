@@ -1,12 +1,12 @@
 <div class="container">
-  <div class="row">
-    <div class="new-form">
-      <h1>Add a game</h1>
+  <div class="row d-flex justify-content-center p-5 form-card">
+    <div class="col-8 new-form">
+      <h1 class="text-center">Add a game</h1>
         <%= simple_form_for(@game) do |f| %>
           <%= f.input :title, placeholder: "Title" %>
           <%= f.input :description, placeholder: "Description" %>
           <%= f.input :category, placeholder: "Category" %>
-          <%= f.button :submit, "Add now!", class: "submit button" %>
+          <%= f.button :submit, "Add now!", class: "btn btn-success submit-button" %>
         <% end %>
     </div>
   </div>
