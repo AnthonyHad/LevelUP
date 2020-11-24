@@ -1,0 +1,45 @@
+.gallery {
+  background: $light-background;
+}
+
+.gallery-cell {
+  width: 25%;
+  height: 200px;
+  margin-right: 10px;
+  background: $secondary-text;
+  counter-increment: gallery-cell;
+  border-radius: 10px;
+}
+
+/* cell number */
+.gallery-cell:before {
+  display: block;
+  text-align: center;
+  content: counter(gallery-cell);
+  line-height: 200px;
+  font-size: 80px;
+  color: $light-background;
+}
+
+.gallery-container {
+  background-color: $light-background;
+  padding: 70px 42px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.5);
+  border-radius: 10px;
+}
+.flickity-prev-next-button {
+  background: $light-background !important;
+  svg > .arrow {
+    color: $electric-red;
+  }
+
+}
+
+.flickity-prev-next-button .arrow {
+   color: $ghost-white;
+}
+
+// navbar-links
+.navbar-links {
+  background-color: $secondary-background;
+}

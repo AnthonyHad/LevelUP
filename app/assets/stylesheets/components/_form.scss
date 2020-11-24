@@ -1,5 +1,9 @@
-.new-form{
+.form-container{
   background-color: $secondary-background;
+  border-radius: 24px;
+  padding: 48px;
+}
+.new-form{
   border-radius: $border-radius;
 }
 

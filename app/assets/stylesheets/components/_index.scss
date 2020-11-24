@@ -2,8 +2,14 @@
 @import "alert";
 @import "avatar";
 @import "navbar";
+
+@import "cards";
+
+
 @import "form";
 @import "button";
+@import "footer";
+
 
 .box {
   margin-left: 7.31383%;
@@ -12,4 +18,9 @@
 
 .wrapper {
   color: $secondary-text;
+}
+
+html {
+  position: relative;
+  min-height: 100%;
 }
