@@ -2,10 +2,13 @@
 @import "alert";
 @import "avatar";
 @import "navbar";
-@import "form";
-@import "button";
+
 
 .box {
   margin-left: 7.31383%;
   margin-right: 7.31383%;
+}
+
+.wrapper {
+  color: $secondary-text;
 }
