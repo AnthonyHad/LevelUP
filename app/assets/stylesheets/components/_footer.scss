@@ -1,0 +1,30 @@
+.footer {
+  display: flex;
+  height: 89px;
+  font-size: 1.125vw;
+  justify-content: center;
+  font-family: 'Montserrat', sans-serif;
+  p {
+    color: #7B7B7B;
+  }
+  font-weight: 700;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+}
+
+.footer-item {
+  padding: 0px;
+  list-style: none;
+  color: #7B7B7B;
+}
+
+.social-media-link {
+  font-size: 24px;
+  color: $secondary-text;
+}
+
+.fa-facebook {
+  color: $secondary-text;
+}
