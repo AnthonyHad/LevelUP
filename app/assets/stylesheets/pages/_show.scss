@@ -43,3 +43,11 @@
 .navbar-links {
   background-color: $secondary-background;
 }
+.navbar-links ul {
+  display: inline-block;
+  list-style-type: none;
+  text-align: center;
+  li {
+    display: inline-block;
+  }
+}
