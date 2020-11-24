@@ -1,0 +1,12 @@
+<div class="box">
+  <div class="cards-post">
+    <% @devlogs.each do |devlogs| %>
+      <div class="card-devlogs">
+        <p><%= devlogs.title %></p>
+        <p><%= devlogs.user_id %></p>
+        <p><%= devlogs.content %></p>
+      </div>
+    <% end %>
+    <%= link_to "Add a comment", new_game_post_path(category: "devlog"), class: "btn btn-success submit-button" %>
+  </div>
+</div>
