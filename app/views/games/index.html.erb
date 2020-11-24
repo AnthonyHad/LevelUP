@@ -15,20 +15,31 @@
   <% end %>
 </div>
 
-<div class="main">
-  <div class="filters">
+<div class="row">
+  <div class="col-0 col-md-2">
+    <div class="container-fluid">
+      <h3>This is where we will have the filters on the page</h3>
+    </div>
   </div>
-
-  <div class="display-games">
-    <h1>Welcome To LevelUP</h1>
-    <ol>
-    <% @games.each do |game| %>
-        <li><h5><%= link_to game.title, game_path(game) %></h5></li>
-      <ul>
-          <li><%=game.category %></li>
-          <li><%= game.description %></li>
-      </ul>
-    <%end%>
-    </ol>
+    <div class="col-12 col-md-10">
+      <div class="games-background">
+        <div class="container-fluid">
+          <div class="row">
+            <% @games.each do |game| %>
+              <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+                <div class="games-card">
+                  <div class="game-card-info">
+                    <%= image_tag "mario.jpg", class: "game-image" %>
+                    <%= link_to game.title, game_path(game) %>
+                    <p class="game-tag"><%="##{game.category}"%></p>
+                    <p class="game-description"><%= game.description %></p>
+                    <p class="btn btn-success submit-button">Button Here!</p>
+                  </div>
+                </div>
+              </div>
+            <% end %>
+          </div>
+        </div>
+    </div>
   </div>
 </div>
