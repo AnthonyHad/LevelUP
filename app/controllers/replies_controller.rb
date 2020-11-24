@@ -6,7 +6,7 @@ class RepliesController < ApplicationController
     if @reply.save
       redirect_to request.referer #referes to the last "get" page
     else
-      flash[:error] = "Something went wrong try again please!"
+      flash[:error] = "Something went wrong try again please!" #flashed to the user an error message if it doesn't save
       redirect_to request.referer
     end
   end
