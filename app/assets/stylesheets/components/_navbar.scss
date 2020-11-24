@@ -1,6 +1,7 @@
 .navbar-lewagon {
   justify-content: space-between;
   border-bottom: 1px solid #818181;
+  padding: 0px;
 }
 
 .navbar-lewagon .navbar-collapse {
@@ -22,6 +23,7 @@
   &:hover {
     background-color: $secondary-background;
     cursor: pointer;
+    transition: 0.3s;
   }
 }
 
@@ -29,12 +31,32 @@
   .active {
     background-color: $secondary-background;
   }
-  margin-left: 150px;
+  flex-grow: 1;
 }
 
 .nav-username {
   color: $ghost-white;
   margin-left: 8px;
-  margin-top: 8px;
   margin-right: 24px;
+  font-weight: 700;
 }
+
+.settings-icon {
+  padding: 8px;
+  color: #ABB2B9;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  font-size: 16px;
+  text-align: center;
+  background-color: $secondary-background;
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+.nav-container {
+  width: 250px;
+}
+
+
