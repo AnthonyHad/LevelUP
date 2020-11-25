@@ -8,10 +8,39 @@
 .card-discussion{
   background-color: $light-background;
   border-radius: 8px;
-  display: flex;
-  flex-direction: column;
-  padding: 8px;
+  padding: 16px;
   margin-bottom: 8px;
+  position: relative;
+  .btn{
+    position: absolute;
+    right: 4px;
+    bottom: 4px;
+  }
+}
+
+.discussion-top{
+  display: flex;
+  align-items: center;
+  height: 40px;
+  margin-bottom: 8px;
+}
+
+.user-date{
+  margin-left: 8px;
+  flex-direction: column;
+  height: 40px;
+  p{
+    margin:0;
+  }
+  .time{
+    font-style: italic;
+    font-size: smaller;
+    opacity: 0.44;
+  }
+}
+
+.discussion-content{
+  margin-left: 16px;
 }
 
 .card-devlogs{

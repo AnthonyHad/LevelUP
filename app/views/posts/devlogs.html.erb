@@ -3,7 +3,7 @@
     <% @devlogs.each do |devlogs| %>
       <div class="card-devlogs">
         <p><%= devlogs.title %></p>
-        <p><%= devlogs.user_id %></p>
+        <p><%= devlogs.user.nickname %></p>
         <p><%= devlogs.content %></p>
       </div>
     <% end %>
