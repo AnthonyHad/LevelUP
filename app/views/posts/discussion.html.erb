@@ -4,8 +4,13 @@
       <div class="card-discussion">
         <p><%= discussion.user_id %></p>
         <p><%= discussion.content %></p>
+          </div>
+        </div>
       </div>
     <% end %>
     <%= link_to "Add a comment", new_game_post_path(category: "discussion"), class: "btn btn-success submit-button" %>
   </div>
 </div>
+
+
+
