@@ -50,7 +50,7 @@
             <% @games.each do |game| %>
                 <div class="games-card">
                   <div class="game-card-info">
-                    <%= image_tag "mario.jpg", class: "game-image" %>
+                    <%= cl_image_tag(game.photos.last.key, class: "game-image") %>
                     <div class="game-card-text">
                       <%= link_to game.title, game_path(game) %>
                       <p class="game-tag"><%="##{game.category}"%></p>

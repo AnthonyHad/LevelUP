@@ -10,6 +10,8 @@ class GamesController < ApplicationController
 
   def show
     @game = Game.find(params[:id])
+    @posts = @game.posts.where(category: 'post')
+    @post = Post.new
   end
 
   def new
@@ -29,6 +31,6 @@ class GamesController < ApplicationController
   private
 
   def games_params
-    params.require(:game).permit(:title, :description, :category)
+    params.require(:game).permit(:title, :description, :category, photos: [])
   end
 end

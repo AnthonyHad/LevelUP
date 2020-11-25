@@ -51,3 +51,41 @@
     display: inline-block;
   }
 }
+
+// form
+.fake-form {
+  background-color: #FFF;
+  color: $secondary-background;
+  border-radius: 24px;
+  padding: 7px 14px;
+  border: 1px solid $secondary-background;
+}
+
+.fake-form-container {
+  display: flex;
+  padding-bottom: 14px;
+  border-bottom: 1px solid $light-purple;
+  .fake-form {
+    width: 100%;
+
+    margin-left: 2%;
+  }
+}
+
+//popup
+.modal-content {
+  background-color: $dark-background;
+  border-radius: 10px;
+  border: 1px solid $secondary-background;
+}
+
+
+
+
+
+
+
+
+
+
+
