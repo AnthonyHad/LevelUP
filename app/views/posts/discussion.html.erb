@@ -2,9 +2,40 @@
   <div class="cards-post">
     <% @discussion.each do |discussion| %>
       <div class="card-discussion">
-        <p><%= discussion.user_id %></p>
-        <p><%= discussion.content %></p>
+        <div class="discussion-top">
+          <img class="avatar" alt="avatar" src="https://kitt.lewagon.com/placeholder/users/oscargay" />
+          <div class="user-date">
+            <h2><%= discussion.user.nickname %></h2>
+            <p class="time"><%= time_ago_in_words(discussion.created_at) %></p>
+          </div>
+        </div>
+        <p class="discussion-content"><%= discussion.content %></p>
+        <%= link_to "Add a reply", "##{dom_id(discussion)}", class: "btn btn-success submit-button", data: { toggle: 'collapse' }, role: 'button', 'aria-expanded' => false %>
       </div>
+        <% discussion.replies.each do |reply|  %>
+          <div class="card-reply">
+            <div class="discussion-top">
+              <img class="avatar" alt="avatar" src="https://kitt.lewagon.com/placeholder/users/Anthonyhad" />
+              <div class="user-date">
+                <h2><%= reply.user.nickname %></h2>
+                <p class="time"><%= time_ago_in_words(reply.created_at) %></p>
+              </div>
+              <% if @game.user == reply.user %>
+                <div class="btn btn-success submit-button top-button">Developer</div>
+                <div class="vl"></div>
+              <% end %>
+            </div>
+            <p class="discussion-content"><%= reply.content %></p>
+          </div>
+        <% end %>
+        <div class="collapse" id="<%= dom_id(discussion) %>">
+          <div class="form-reply">
+            <%= simple_form_for [discussion, Reply.new] do |f| %>
+            <%= f.input :content %>
+            <%= f.submit "Submit", class: "btn btn-success submit-button"  %>
+            <% end  %>
+          </div>
+        </div>
     <% end %>
     <%= link_to "Add a comment", new_game_post_path(category: "discussion"), class: "btn btn-success submit-button" %>
   </div>

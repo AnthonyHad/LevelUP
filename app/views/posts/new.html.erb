@@ -6,6 +6,7 @@
           <%= f.input :title, placeholder: "Title" %>
           <%= f.input :content, placeholder: "Content" %>
           <%= f.input :category, as: :hidden, input_html: { value: params[:category] || "post" } %>
+          <%= f.input :photo, as: :file %>
           <%= f.button :submit, "Add now!", class: "btn btn-success submit-button" %>
         <% end %>
     </div>

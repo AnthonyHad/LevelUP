@@ -1,12 +1,24 @@
 <div class="box">
   <div class="cards-post">
-    <% @devlogs.each do |devlogs| %>
+    <% @devlogs.each do |devlog| %>
       <div class="card-devlogs">
-        <p><%= devlogs.title %></p>
-        <p><%= devlogs.user_id %></p>
-        <p><%= devlogs.content %></p>
+        <div class="vl"></div>
+        <p class="red">DEVLOG #<%= devlog.id %></p>
+        <h2 class="title"><%= devlog.title %></h2>
+        <div class="discussion-top">
+          <img class="avatar" alt="avatar" src="https://kitt.lewagon.com/placeholder/users/oscargay" />
+          <div class="user-date">
+            <h2><%= devlog.user.nickname %></h2>
+            <p class="time"><%= time_ago_in_words(devlog.created_at) %></p>
+          </div>
+          <div class="btn btn-success submit-button top-button">Developer</div>
+        </div>
+        <hr class="grey-line">
+        <p class="discussion-content"><%= devlog.content %></p>
       </div>
     <% end %>
-    <%= link_to "Add a comment", new_game_post_path(category: "devlog"), class: "btn btn-success submit-button" %>
+    <% if @game.user == current_user %>
+      <%= link_to "Add a devlog", new_game_post_path(category: "devlog"), class: "btn btn-success submit-button" %>
+    <% end %>
   </div>
 </div>
