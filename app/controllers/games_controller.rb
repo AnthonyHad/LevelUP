@@ -10,6 +10,8 @@ class GamesController < ApplicationController
 
   def show
     @game = Game.find(params[:id])
+    @posts = @game.posts.where(category: 'post')
+    @post = Post.new
   end
 
   def new

@@ -54,10 +54,67 @@
 
     </div>
 
-    <div class="col-lg-12 col-xl-7"></div>
+    <div class="col-lg-12 col-xl-7">
+
+        <div class=" card-show-right">
+          <div class="fake-form-container">
+            <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+            <div class="fake-form" data-toggle="modal" data-target="#myModal">What's new?</div>
+          </div>
+
+        </div>
+
+
+
+
+
+
+       <% @posts.each do |post| %>
+
+        <div class="card-show-right">
+          <p><%= post.title %><span><%= link_to '   -', post_path(post), method: :delete, data: { confirm: 'Are you sure?' } %></span></p>
+          <p><%= post.content %></p>
+
+        </div>
+      <% end %>
+
+    </div>
+
   </div>
   </div>
 
+
+</div>
+
+
+<div class="box">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="modal fade" id="myModal">
+        <div class="modal-dialog modal-md">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h1>Title</h1>
+              <i class="far fa-times-circle"></i>
+            </div>
+            <div class="modal-body">
+              <div class="post-form">
+                <%= simple_form_for [@game, @post], html: {class: 'form-inline'} do |f| %>
+                  <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+                  <%= f.input :title, placeholder: "What's new?", label: false %>
+                  <%= f.input :category, as: :hidden, input_html: { value: params[:category] || "post" } %>
+                <% end %>
+            </div>
+            </div>
+            <div class="modal-footer">
+              <div class="btn btn-special"></div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
 
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/flickity/1.0.0/flickity.pkgd.js">></script>

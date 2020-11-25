@@ -1,7 +1,6 @@
 class Post < ApplicationRecord
   belongs_to :user
-  belongs_to :game, dependent: :destroy
-  has_many :replies
+  belongs_to :game
+  has_many :replies, dependent: :destroy
   has_one_attached :photo
-
 end
