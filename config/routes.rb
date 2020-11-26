@@ -14,4 +14,11 @@ Rails.application.routes.draw do
   resources :posts, only: [:destroy] do
     resources :replies, only: [:create]
   end
+
+  resources :orders, only: [:show, :create] do
+    resources :payments, only: :new
+  end
+
+  mount StripeEvent::Engine, at: '/stripe-webhooks'
+
 end

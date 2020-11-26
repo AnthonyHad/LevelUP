@@ -1,0 +1,15 @@
+<div class="container">
+  <div class="row py-4">
+    <div class="col-md-3"><%= cl_image_tag(@order.game.photos.last.key, width: '100%') %></div>
+    <div class="col">
+      <h1>Order #<%= @order.id %> <small><span class="badge badge-primary"><%= @order.state %></span></small></h1>
+      <ul class="list-unstyled">
+        <li><strong>BOUGHT ON</strong> <%= @order.created_at.to_date %></li>
+        <li><strong>GAME</strong> <%= @order.game.title %></li>
+        <li><strong>TOTAL</strong> <%= humanized_money_with_symbol @order.amount %></li>
+        </li>
+      </ul>
+      <p>Download <strong>now</strong></p>
+    </div>
+  </div>
+</div>

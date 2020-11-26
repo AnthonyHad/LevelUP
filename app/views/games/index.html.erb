@@ -56,7 +56,7 @@
                       <p class="game-tag"><%="##{game.category}"%></p>
                       <p class="game-description text-break"><%= game.description %></p>
                       <div class="game-card-button">
-                        <p class="btn btn-success submit-button">Buy Now!</p>
+                        <p class="btn btn-success submit-button"><%= humanized_money_with_symbol(game.price)%></p>
                       </div>
                     </div>
                   </div>
