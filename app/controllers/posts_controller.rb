@@ -12,7 +12,7 @@ class PostsController < ApplicationController
     if @post.save
       if @post.category == "discussion"
         redirect_to discussion_game_posts_path, notice: "Discussion post was succesfully created."
-      elsif @post.category == "devlogs"
+      elsif @post.category == "devlog"
         redirect_to devlogs_game_posts_path, notice: "Devlog post was succesfully created."
       else
         redirect_to game_path(@game), notice: "Post was succesfully created."
@@ -25,11 +25,13 @@ class PostsController < ApplicationController
 
 
   def discussion
+    @post = Post.new
     @game = Game.find(params[:game_id])
     @discussion = @game.posts.where(category: "discussion")
   end
 
   def devlogs
+    @post = Post.new
     @game = Game.find(params[:game_id])
     @devlogs = @game.posts.where(category: "devlog")
   end

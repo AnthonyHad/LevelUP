@@ -11,7 +11,7 @@
   padding: 16px;
   margin-bottom: 8px;
   position: relative;
-  .btn{
+  .reply-button{
     position: absolute;
     right: 4px;
     bottom: 4px;
@@ -49,6 +49,8 @@
 
 .discussion-content{
   font-size: 15px;
+  display: flex;
+  flex-direction: column;
 }
 
 .card-reply{
@@ -59,24 +61,17 @@
   margin-right: 32px;
   margin-bottom: 8px;
   position: relative;
-  .vl{
-    border: 2px solid $dark-purple;
-    height: 100%;
-    position: absolute;
-    left: 0;
-    top: 0;
-    border-top-left-radius: 8px;
-    border-bottom-left-radius: 8px;
-  }
 }
 
 .form-reply{
   background-color: $light-background;
-  border-radius: 8px;
   padding: 16px;
-  margin-left: 16px;
-  margin-right: 16px;
+  margin-left: 32px;
+  margin-right: 32px;
   margin-bottom: 8px;
+  .form-control{
+    border-radius: 8px;
+  }
 }
 
 .card-devlogs{
@@ -89,15 +84,6 @@
     position: absolute;
     right: 4px;
     bottom: 4px;
-  }
-  .vl{
-    border: 2px solid $dark-purple;
-    height: 100%;
-    position: absolute;
-    left: 0;
-    top: 0;
-    border-top-left-radius: 8px;
-    border-bottom-left-radius: 8px;
   }
   .red{
     color: $electric-red;
@@ -113,5 +99,23 @@
     font-weight: bold;
     font-size: 18px;
     margin-bottom: 24px;
+  }
+}
+
+.vl{
+  border: 2px solid $dark-purple;
+  height: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+  border-top-left-radius: 8px;
+  border-bottom-left-radius: 8px;
+}
+
+.image-post{
+  width: 100px;
+  height: 100px;
+  &:hover {
+    cursor: pointer;
   }
 }

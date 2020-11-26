@@ -3,24 +3,33 @@
     <% @discussion.each do |discussion| %>
       <div class="card-discussion">
         <div class="discussion-top">
-          <img class="avatar" alt="avatar" src="https://kitt.lewagon.com/placeholder/users/oscargay" />
+          <%= cl_image_tag(discussion.user.photo.key, class: "avatar") %>
           <div class="user-date">
             <h2><%= discussion.user.nickname %></h2>
             <p class="time"><%= time_ago_in_words(discussion.created_at) %></p>
           </div>
+          <% if @game.user.id == discussion.user.id %>
+            <div class="btn btn-success submit-button top-button">Developer</div>
+            <div class="vl"></div>
+          <% end %>
         </div>
-        <p class="discussion-content"><%= discussion.content %></p>
-        <%= link_to "Add a reply", "##{dom_id(discussion)}", class: "btn btn-success submit-button", data: { toggle: 'collapse' }, role: 'button', 'aria-expanded' => false %>
+        <div class="discussion-content">
+          <p><%= discussion.content %></p>
+          <% if discussion.photo.attached? %>
+            <%= cl_image_tag(discussion.photo.key, class: "image-post") %>
+          <% end %>
+        </div>
+        <%= link_to "Add a reply", "##{dom_id(discussion)}", class: "btn btn-success submit-button reply-button", data: { toggle: 'collapse' }, role: 'button', 'aria-expanded' => false %>
       </div>
         <% discussion.replies.each do |reply|  %>
           <div class="card-reply">
             <div class="discussion-top">
-              <img class="avatar" alt="avatar" src="https://kitt.lewagon.com/placeholder/users/Anthonyhad" />
+              <%= cl_image_tag(reply.user.photo.key, class: "avatar") %>
               <div class="user-date">
                 <h2><%= reply.user.nickname %></h2>
                 <p class="time"><%= time_ago_in_words(reply.created_at) %></p>
               </div>
-              <% if @game.user == reply.user %>
+              <% if @game.user.id == reply.user.id %>
                 <div class="btn btn-success submit-button top-button">Developer</div>
                 <div class="vl"></div>
               <% end %>
@@ -31,12 +40,42 @@
         <div class="collapse" id="<%= dom_id(discussion) %>">
           <div class="form-reply">
             <%= simple_form_for [discussion, Reply.new] do |f| %>
-            <%= f.input :content %>
+            <%= f.input :content, label: "Add your comment below" %>
             <%= f.submit "Submit", class: "btn btn-success submit-button"  %>
             <% end  %>
           </div>
         </div>
     <% end %>
-    <%= link_to "Add a comment", new_game_post_path(category: "discussion"), class: "btn btn-success submit-button" %>
+    <div class="btn btn-success submit-button" data-toggle="modal" data-target="#myModal">Add a post</div>
+  </div>
+</div>
+
+<div class="box">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="modal fade" id="myModal">
+        <div class="modal-dialog modal-md">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h1>Add a comment</h1>
+              <i class="far fa-times-circle"></i>
+            </div>
+            <div class="modal-body">
+              <div class="post-form">
+                <%= simple_form_for [@game, @post] do |f| %>
+                  <%= f.input :content, placeholder: "Content" %>
+                  <%= f.input :category, as: :hidden, input_html: { value: "discussion" } %>
+                  <%= f.input :photo, as: :file %>
+                  <%= f.button :submit, "Add now!", class: "btn btn-success submit-button" %>
+                <% end %>
+              </div>
+            </div>
+            <div class="modal-footer">
+              <div class="btn btn-special"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
