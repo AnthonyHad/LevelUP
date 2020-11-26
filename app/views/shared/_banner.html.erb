@@ -1,0 +1,37 @@
+<div class="row d-flex justify-content-center banner">
+  <div class="col-10 banner-image">
+    <%= cl_image_tag(@game.photos.last.key) %>
+  </div>
+  <div class="col-10 banner-content">
+    <%= cl_image_tag(@game.user.photo.key, class: "avatar") %>
+    <p class="developer">Developer by <%= @game.user.nickname %></p>
+    <div class="banner-top">
+      <h1 class="banner-title"><%= @game.title %></h1>
+      <div class="system-icons">
+        <i class="fab fa-windows"></i>
+        <i class="fab fa-apple"></i>
+        <i class="fab fa-linux"></i>
+      </div>
+    </div>
+    <p class="banner-category">#<%= @game.category %></p>
+    <p class="banner-description"><%= @game.description %></p>
+    <% if @game.user != current_user %>
+      <div class="banner-order">
+        <%= form_tag orders_path do %>
+          <%= hidden_field_tag 'game_id', @game.id %>
+          <%= submit_tag 'Buy Now', class: 'btn btn-primary' %>
+        <% end %>        
+        <h3><%= humanized_money_with_symbol(game.price)%></h3>
+      </div>
+    <% end %> 
+  </div>
+</div>
+<div class="row d-flex justify-content-center form-banner">
+  <div class="col-8">
+    <div class="banner-links">
+      <%= link_to "Home", game_path(@game) %>
+      <%= link_to "Discussion", discussion_game_posts_path(@game) %>
+      <%= link_to "Devlogs", devlogs_game_posts_path(@game) %>
+    </div>
+  </div>
+</div>
