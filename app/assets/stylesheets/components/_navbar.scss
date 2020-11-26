@@ -2,6 +2,7 @@
   justify-content: space-between;
   border-bottom: 1px solid #818181;
   padding: 0px;
+  height: 50px;
 }
 
 .navbar-lewagon .navbar-collapse {
@@ -13,25 +14,26 @@
 }
 
 .page-icon {
-  padding: 8px;
+  // padding: 8px;
   color: #ABB2B9;
-  width: 85px;
-  height: 60px;
+  width: 50px;
   border-radius: 16px;
-  font-size: 32px;
+  font-size: 24px;
   text-align: center;
   &:hover {
-    background-color: $secondary-background;
+    // background-color: $secondary-background;
     cursor: pointer;
     transition: 0.3s;
   }
 }
 
 .page-icons {
-  .active {
-    background-color: $secondary-background;
-  }
+  // .active {
+  //   background-color: $secondary-background;
+  // }
   flex-grow: 1;
+  display: flex;
+  vertical-align: center;
 }
 
 .nav-username {
@@ -45,13 +47,18 @@
   padding: 8px;
   color: #ABB2B9;
   width: 40px;
-  height: 40px;
+  height: 35px;
   border-radius: 50%;
   font-size: 16px;
-  text-align: center;
-  background-color: $secondary-background;
+  display: flex;
   &:hover {
     cursor: pointer;
+
+  }
+  i {
+    &::after {
+        content: none;
+    }
   }
 }
 
@@ -63,4 +70,64 @@
   color: $ghost-white;
 }
 
+.middle
+{
+  position: relative;
+}
+
+.middle:before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  background-color: $ghost-white;
+  visibility: hidden;
+  transform: scaleX(0);
+  transition: all 0.3s ease-in-out;
+}
+
+.middle:hover:before {
+  visibility: visible;
+  transform: scaleX(1);
+}
+
+.nav-logo img:hover,
+.nav-logo img:focus,
+.nav-logo img:active {
+  -webkit-animation-name: buzz;
+  animation-name: buzz;
+  -webkit-animation-duration: 0.15s;
+  animation-duration: 0.15s;
+  -webkit-animation-timing-function: linear;
+  animation-timing-function: linear;
+  -webkit-animation-iteration-count: infinite;
+  animation-iteration-count: infinite;
+}
+
+@-webkit-keyframes buzz {
+    50% {
+        -ms-transform: translateX(3px) rotate(2deg);
+      -webkit-transform: translateX(3px) rotate(2deg);
+      transform: translateX(3px) rotate(2deg);
+    }
+    100% {
+      -ms-transform: translateX(-3px) rotate(-2deg);
+      -webkit-transform: translateX(-3px) rotate(-2deg);
+      transform: translateX(-3px) rotate(-2deg);
+    }
+}
+@keyframes buzz {
+    50% {
+      -ms-transform: translateX(3px) rotate(2deg);
+      -webkit-transform: translateX(3px) rotate(2deg);
+      transform: translateX(3px) rotate(2deg);
+    }
+    100% {
+      -ms-transform: translateX(-3px) rotate(-2deg);
+      -webkit-transform: translateX(-3px) rotate(-2deg);
+      transform: translateX(-3px) rotate(-2deg);
+    }
+}
 
