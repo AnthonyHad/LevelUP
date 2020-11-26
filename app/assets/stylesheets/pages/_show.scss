@@ -40,9 +40,16 @@
   }
 
 }
-
 .flickity-prev-next-button .arrow {
    color: $ghost-white;
+   fill: $electric-red !important;
+}
+
+.flickity-prev-next-button.next {
+    right: -30px !important;
+}
+.flickity-prev-next-button.previous {
+    left: -30px !important;
 }
 
 // navbar-links
