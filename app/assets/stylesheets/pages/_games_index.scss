@@ -21,25 +21,51 @@
 
 .hero {
   height: 350px;
+  padding: 0px 100px;
+  margin-bottom: 20px;
 }
 
 .carousel {
   height: 100%;
 }
 
+.carousel-inner {
+  background: #171717;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 0px 0px 10px 10px;
+}
+
+// .carousel-button {
+// background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%ff2d55' viewBox='0 0 8 8'%3E%3Cpath d='M5.25 0l-4 4 4 4 1.5-1.5-2.5-2.5 2.5-2.5-1.5-1.5z'/%3E%3C/svg%3E");
+// }
+
 .form-container-index {
-  background-color: $secondary-background;
-  border-radius: 10px;
-  padding: 5px;
+  padding: 3px;
   margin-bottom: 10px;
-  width: 400px;
 }
 
 .form-control {
-  border-radius: 10px 0px 0px 10px;
-  background-color: #1F1F1F;
+  background-color: #313030;
+  outline: none;
+  border: none;
+  padding: 10px;
 }
 
 .btn-search-index{
   border-radius: 0px 10px 10px 0px;
+}
+
+.games-container {
+  padding: 10px;
+  // border-top: 0.4px solid #FFFFFF;
+}
+
+.games-search {
+  padding: 10px;
+  margin-bottom: 20px;
+  h2 {
+    font-family: $headers-font;
+    font-weight: 700;
+    color: $ghost-white;
+  }
 }
