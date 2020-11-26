@@ -10,3 +10,19 @@
 .button-special {
   color: $secondary-background;
 }
+
+.btn-for-post {
+  background-color: $secondary-background;
+  width: 100%;
+  opacity: .7;
+  &:hover {
+    opacity: 1;
+  }
+  input {
+  color: $ghost-white;
+
+  &:hover {
+    color: $ghost-white;
+  }
+  }
+}

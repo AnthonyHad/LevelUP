@@ -25,11 +25,21 @@
   <div class="box">
     <div class="gallery-container">
     <div class="gallery js-flickity" data-flickity-options='{ "wrapAround": true }'>
-      <div class="gallery-cell"></div>
-      <div class="gallery-cell"></div>
-      <div class="gallery-cell"></div>
-      <div class="gallery-cell"></div>
-      <div class="gallery-cell"></div>
+      <div class="gallery-cell">
+        <%= cl_image_tag(@game.photos.last.key, crop: :fill) %>
+      </div>
+      <div class="gallery-cell">
+        <%= cl_image_tag(@game.photos.first.key, crop: :fill) %>
+      </div>
+      <div class="gallery-cell">
+        <%= cl_image_tag(@game.photos.last.key, crop: :fill) %>
+      </div>
+      <div class="gallery-cell">
+        <%= cl_image_tag(@game.photos.first.key, crop: :fill) %>
+      </div>
+      <div class="gallery-cell">
+        <%= cl_image_tag(@game.photos.last.key, crop: :fill) %>
+      </div>
     </div>
   </div>
 
@@ -58,7 +68,7 @@
 
         <div class=" card-show-right">
           <div class="fake-form-container">
-            <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+            <%= image_tag @game.user.photo, class: "avatar" %>
             <div class="fake-form" data-toggle="modal" data-target="#myModal">What's new?</div>
           </div>
 
@@ -94,21 +104,33 @@
         <div class="modal-dialog modal-md">
           <div class="modal-content">
             <div class="modal-header">
-              <h1>Title</h1>
-              <i class="far fa-times-circle"></i>
+              <h5>Create a post</h5>
+              <button id="close-button-container" type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <small aria-hidden="true" id="close-button" class="mdi mdi-close-circle-outline text-white"></small>
+              </button>
+
             </div>
             <div class="modal-body">
+              <div class="post-form-body-top">
+                <%= image_tag @game.user.photo, class: "avatar" %>
+                <span>@<%= @game.user.nickname %></span>
+              </div>
               <div class="post-form">
-                <%= simple_form_for [@game, @post], html: {class: 'form-inline'} do |f| %>
-                  <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+                <%= simple_form_for [@game, @post] do |f| %>
+
                   <%= f.input :title, placeholder: "What's new?", label: false %>
                   <%= f.input :category, as: :hidden, input_html: { value: params[:category] || "post" } %>
-                <% end %>
-            </div>
+                  <div class="post-form-photo">
+                    <%= f.input :photos, as: :file, label: false %>
+                  </div>
+              </div>
             </div>
             <div class="modal-footer">
-              <div class="btn btn-special"></div>
+              <div class="btn btn-for-post">
+                <%= f.button :submit, "Post" %>
+              </div>
             </div>
+                <% end %>
           </div>
 
         </div>
