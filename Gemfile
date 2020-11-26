@@ -35,6 +35,10 @@ gem 'devise'
 
 gem 'money-rails'
 
+gem 'stripe'
+
+gem 'stripe_event'
+
 gem 'autoprefixer-rails'
 gem 'font-awesome-sass'
 gem 'simple_form'

@@ -4,6 +4,7 @@ class User < ApplicationRecord
   has_many :games, dependent: :destroy
   has_many :replies
   has_many :posts
+  has_many :orders
   has_one_attached :photo, dependent: :destroy
 
   devise :database_authenticatable, :registerable,
