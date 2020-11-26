@@ -1,8 +1,11 @@
 <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
   <div class="nav-container">
-    <%= link_to "#" do %>
-      <%= image_tag "logo.svg" %>
-      <% end %>
+    <div class="nav-logo">
+      <span></span>
+      <%= link_to "#" do %>
+        <%= image_tag "logo.svg", class: "logo-link" %>
+        <% end %>
+    </div>
   </div>
 
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -11,23 +14,23 @@
 
   <div class="collapse navbar-collapse">
       <ul class="page-icons navbar-nav mr-auto">
-        <%= link_to "#" do %>
-          <li class="page-icon nav-item m-1 active">
+        <%= link_to games_path do %>
+          <li class="page-icon middle nav-item mx-3 active">
             <i class="fas fa-home"></i>
           </li>
         <% end %>
         <%= link_to games_path do %>
-          <li class="page-icon nav-item m-1">
+          <li class="page-icon middle nav-item mx-3">
             <i class="fas fa-gamepad"></i>
           </li>
         <% end %>
         <%= link_to games_path do %>
-          <li class="page-icon nav-item m-1">
+          <li class="page-icon middle nav-item mx-3">
             <i class="fas fa-file-alt"></i>
           </li>
         <% end %>
         <%= link_to games_path do %>
-          <li class="page-icon nav-item m-1">
+          <li class="page-icon middle nav-item mx-3">
             <i class="fas fa-file-code"></i>
           </li>
         <% end %>
@@ -38,19 +41,18 @@
       <ul class="navbar-nav mr-0 d-flex align-items-center">
         <% if user_signed_in? %>
           <li class="nav-item dropdown d-flex align-items-center mr-auto">
-            <%= cl_image_tag(current_user.photo.key, class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false) %>
-            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-              <%= link_to "Action", "#", class: "dropdown-item" %>
-              <%= link_to "Another action", "#", class: "dropdown-item" %>
-              <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
-            </div>
+            <%= cl_image_tag(current_user.photo.key, class: "avatar")%>
             <div class="nav-username">
               <%= current_user.nickname %>
             </div>
           </li>
-          <li class="settings-icon nav-item dropdown mr-2 d-flex align-items-center justify-content-center">
-            <i class="fas fa-sliders-h"></i>
-          </li>
+            <li class="settings-icon middle nav-item dropdown mr-2 d-flex align-items-center justify-content-center">
+              <i class="fas fa-sliders-h" id="navbarDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false""></i>
+              <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                <%= link_to "Add a game", new_game_path, class: "dropdown-item" %>
+                <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
+              </div>
+            </li>
         <% else %>
           <li class="nav-item mr-3">
             <%= link_to "Login", new_user_session_path, class: "nav-link", id: "login-button" %>
