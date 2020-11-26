@@ -9,7 +9,8 @@
 
 .game-image {
   width: 250px;
-  height: 200px;
+  object-fit: cover;
+  object-position: center;
 }
 
 .game-card-info {

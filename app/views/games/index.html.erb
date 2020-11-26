@@ -1,12 +1,12 @@
 
 <div class="hero">
-<div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
-  <div class="carousel-inner h-100 w-100">
+<div id="carouselExampleControls" class="carousel slide" data-ride="carousel" data-interval="false">
+  <div class="carousel-inner h-100 w-75 image-margin">
     <% @games.each_with_index do |game, index| %>
-    <div class="carousel-item <%= 'active' if index.zero? %>">
+    <div class="carousel-item <%= 'active' if index.zero? %> h-100">
       <%= link_to game_path(game) do %>
-        <div class="d-flex">
-        <%= cl_image_tag(game.photos.last.key, crop: :fit, class: " d-block w-100 h-25 game-image") %>
+        <div class="d-flex h-100">
+        <%= cl_image_tag(game.photos.first.key, crop: :fit, class: " d-block h-100 w-75 ml-0 game-image") %>
         <div class="img-button">
           <p>HEllo</p>
         </div>
@@ -28,9 +28,25 @@
 </div>
 
 <div class="row">
-  <div class="col-0 col-md-2">
-    <div class="container-fluid filters-background">
-      <h3>This is where we will have the filters on the page</h3>
+  <div class="col-0 col-md-2 filters-background">
+    <div class="container-fluid filters-content">
+      <h3>Filter Games</h3>
+      <div class="filters-type">
+      <h5>Platform</h5>
+        <ul>
+          <li>Windows</li>
+          <li>MacOs</li>
+          <li>Linux</li>
+          <li>Web</li>
+        </ul>
+        <h5>Price</h5>
+        <ul>
+          <li>Free</li>
+          <li>On Sale</li>
+          <li>10$ or less</li>
+          <li>20$ or Less</li>
+        </ul>
+        </div>
     </div>
   </div>
     <div class="col-12 col-md-10 games-container">
