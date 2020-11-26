@@ -16,17 +16,17 @@
             <i class="fas fa-home"></i>
           </li>
         <% end %>
-        <%= link_to "#" do %>
+        <%= link_to games_path do %>
           <li class="page-icon nav-item m-1">
             <i class="fas fa-gamepad"></i>
           </li>
         <% end %>
-        <%= link_to "#" do %>
+        <%= link_to games_path do %>
           <li class="page-icon nav-item m-1">
             <i class="fas fa-file-alt"></i>
           </li>
         <% end %>
-        <%= link_to "#" do %>
+        <%= link_to games_path do %>
           <li class="page-icon nav-item m-1">
             <i class="fas fa-file-code"></i>
           </li>
@@ -52,8 +52,8 @@
             <i class="fas fa-sliders-h"></i>
           </li>
         <% else %>
-          <li class="nav-item">
-            <%= link_to "Login", new_user_session_path, class: "nav-link" %>
+          <li class="nav-item mr-3">
+            <%= link_to "Login", new_user_session_path, class: "nav-link", id: "login-button" %>
           </li>
         <% end %>
       </ul>
