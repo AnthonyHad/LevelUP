@@ -26,6 +26,7 @@
 
 .description-left{
   margin-left: 16px;
+  min-width: 250px;
 }
 
 .order-discount{
@@ -39,4 +40,32 @@
   justify-content: space-between;
   font-weight: bold;
   font-size: 18px;
+}
+
+.order-date{
+  display: flex;
+  justify-content: space-between;
+  font-size: 16px;
+}
+
+.order-title{
+  display: flex;
+  justify-content: space-between;
+  font-size: 16px;
+  p{  
+    margin: 0;
+  }
+}
+
+.order-download{
+  font-size: 16px;
+  text-decoration: none;
+  color: $ghost-white;
+  p{  
+    margin: 0;
+    opacity: 0.63;
+  }
+  &:hover{
+    text-decoration: none;
+  }
 }
