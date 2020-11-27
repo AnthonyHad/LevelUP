@@ -1,6 +1,5 @@
 .banner{
   background-color: $light-background;
-  padding: 0px 32px;
 }
 
 .banner-image{
@@ -22,7 +21,7 @@
     position: absolute;
     width: 132px;
     height: 132px;
-    left: 15px;
+    left: 0px;
     top: -31px;
   }
   .developer{
@@ -91,8 +90,6 @@
   a{
     margin: 0;
     color: $ghost-white;
-    &:hover{
-      color: $dark-purple;
-    }
+    text-decoration: none;
   }
 }
