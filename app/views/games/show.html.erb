@@ -1,8 +1,4 @@
-
-
-
 <%= render 'shared/banner' %>
-
 
 
 <div class="box">
@@ -30,7 +26,6 @@
 
 
 
-
   <div class="row">
     <div class="col-lg-12 col-xl-5">
       <div class="card-show-left ">
@@ -45,8 +40,8 @@
       <div class="card-show-left ">
         <h3>Reviews</h3>
       </div>
-
     </div>
+
 
     <div class="col-lg-12 col-xl-7">
 <!-- Form visible only to the game owner to make a post -->
@@ -58,7 +53,6 @@
             </div>
         </div>
       <% end %>
-
 
 
 <!-- Posts one under the other -->
@@ -73,6 +67,7 @@
               </span>
             </div>
 <!-- Dropdown available only to the post author === game owner-->
+
             <% if @game.user == current_user%>
               <div class="dropdown-toggle" id="navbarDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 <i class="fas fa-ellipsis-h"></i>
@@ -84,19 +79,32 @@
           <% end %>
           </div>
 
-          <% if post.photo.attached? %>
-            <%= cl_image_tag(post.photo.key, class: "image-post") %>
-          <% end %>
           <div class="card-show-content">
             <p><%= post.title %></p>
             <p><%= post.content %></p>
           </div>
+          <% if post.photo.attached? %>
+            <%= cl_image_tag(post.photo.key, class: "image-post") %>
+          <% end %>
 
-
+<!-- number of commnets -->
+          <% if post.replies.count == 1 %>
+            <p id="comment-number"><%= post.replies.count %> comment</p>
+          <% else %>
+            <p id="comment-number"><%= post.replies.count %> comments</p>
+          <% end %>
+          <hr>
 <!-- All the replies -->
           <div class="replies-container">
             <% post.replies.each do |reply| %>
-              <p><%= reply.content %></p>
+              <div class="reply-container">
+                <div class="reply-wrapper">
+                  <%= image_tag reply.user.photo, class: "avatar" %>
+                  <p><%= reply.content %></p>
+                </div>
+                <p class="time"><%= time_ago_in_words(reply.created_at) %></p>
+              </div>
+
             <% end %>
           </div>
 
@@ -106,7 +114,6 @@
             <%= simple_form_for [post, Reply.new], html: {class: 'form-inline'} do |f| %>
               <%= image_tag current_user.photo, class: "avatar-small" %>
               <%= f.input :content, placeholder: "Comment on that...", label: false %>
-
             <% end  %>
           </div>
 
