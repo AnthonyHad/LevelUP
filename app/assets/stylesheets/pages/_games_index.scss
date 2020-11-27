@@ -33,6 +33,7 @@
   }
   h5, li {
     font-size: 15px;
+    list-style: none;
   }
 }
 
@@ -44,12 +45,15 @@
   &:hover {
     background-color: $secondary-background;
     cursor: pointer;
-    transition: 0.1s;
+    transition: 0.2s;
     border-radius: 8px;
     border-color: #8E67F6;
     border-style: solid;
     width: 100%;
     border-width: thin;
+    padding: 3px 15px;
+    text-align: center;
+
   }
 }
 
