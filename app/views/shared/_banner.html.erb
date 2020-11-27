@@ -1,10 +1,10 @@
-<div class="row d-flex justify-content-center banner">
-  <div class="col-10 banner-image">
+<div class="banner">
+  <div class="box banner-image">
     <%= cl_image_tag(@game.photos.last.key) %>
   </div>
-  <div class="col-10 banner-content">
+  <div class="box banner-content">
     <%= cl_image_tag(@game.user.photo.key, class: "avatar") %>
-    <p class="developer">Developer by <%= @game.user.nickname %></p>
+    <p class="developer">Developed by <%= @game.user.nickname %></p>
     <div class="banner-top">
       <h1 class="banner-title"><%= @game.title %></h1>
       <div class="system-icons">
@@ -29,9 +29,9 @@
 <div class="row d-flex justify-content-center form-banner">
   <div class="col-8">
     <div class="banner-links">
-      <%= link_to "Home", game_path(@game) %>
-      <%= link_to "Discussion", discussion_game_posts_path(@game) %>
-      <%= link_to "Devlogs", devlogs_game_posts_path(@game) %>
+      <%= link_to "Home", game_path(@game), class:"middle" %>
+      <%= link_to "Discussion", discussion_game_posts_path(@game), class:"middle" %>
+      <%= link_to "Devlogs", devlogs_game_posts_path(@game), class:"middle" %>
     </div>
   </div>
 </div>
