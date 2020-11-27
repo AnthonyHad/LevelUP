@@ -54,14 +54,12 @@
                   <div class="post-form-photo">
                     <%= f.input :photo, as: :file, label: false %>
                   </div>
-              </div>
-            </div>
-            <div class="modal-footer">
-              <div class="btn btn-for-post">
-                <%= f.button :submit, "Add now!" %>
-              </div>
-            </div>
+                  <div class="modal-footer">
+                    <%= f.button :submit, "Add now!", class: "btn btn-for-post" %>
+                  </div>
                 <% end %>
+              </div>
+            </div>
           </div>
         </div>
       </div>
