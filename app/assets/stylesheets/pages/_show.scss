@@ -135,8 +135,6 @@
     border: none;
   }
 }
-
-
 .modal-header h5 {
   color: $ghost-white;
   opacity: .8;
@@ -144,7 +142,38 @@
 }
 
 
+// replies under posts
+.reply-container {
+  padding: 14px;
+}
 
+.reply-wrapper {
+  display: flex;
+  width: 90%;
+}
+
+.reply-wrapper p {
+  background-color: $secondary-background;
+  padding: 7px 14px;
+  border-radius: 16px;
+  min-width: 30%;
+  margin-left: 7px;
+}
+.reply-container .time {
+  font-size: 12px;
+  opacity: .6;
+  padding-left: 10%;
+  margin-bottom: 0;
+}
+
+#comment-number {
+  margin: 14px;
+  padding-bottom: 7px;
+  padding-left: 80%;
+  border-bottom: 1px solid $light-purple;
+  opacity: .6;
+  font-size: 14px;
+}
 
 
 
