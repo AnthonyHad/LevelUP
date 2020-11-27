@@ -58,22 +58,31 @@
         <div class="modal-dialog modal-md">
           <div class="modal-content">
             <div class="modal-header">
-              <h1>Add a comment</h1>
-              <i class="far fa-times-circle"></i>
+              <h5>Create a post</h5>
+              <button id="close-button-container" type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <small aria-hidden="true" id="close-button" class="mdi mdi-close-circle-outline text-white"></small>
+              </button>
             </div>
             <div class="modal-body">
+              <div class="post-form-body-top">
+                <%= image_tag @game.user.photo, class: "avatar" %>
+                <span>@<%= @game.user.nickname %></span>
+              </div>
               <div class="post-form">
                 <%= simple_form_for [@game, @post] do |f| %>
-                  <%= f.input :content, placeholder: "Content" %>
+                  <%= f.input :content, placeholder: "Content", label: false %>
                   <%= f.input :category, as: :hidden, input_html: { value: "discussion" } %>
-                  <%= f.input :photo, as: :file %>
-                  <%= f.button :submit, "Add now!", class: "btn btn-success submit-button" %>
-                <% end %>
+                  <div class="post-form-photo">
+                    <%= f.input :photo, as: :file, label: false %>
+                  </div>
               </div>
             </div>
             <div class="modal-footer">
-              <div class="btn btn-special"></div>
+              <div class="btn btn-for-post">
+                <%= f.button :submit, "Add now!" %>
+              </div>
             </div>
+                <% end %>
           </div>
         </div>
       </div>

@@ -1,20 +1,37 @@
-<div class="container">
-  <div class="row py-4">
-    <div class="col-md-3"><%= cl_image_tag(@order.game.photos.last.key, width: '100%') %></div>
-    <div class="col">
-      <h1>Checkout summary</h1>
-      <p>Purchase of <strong><%= @order.game.title %></strong> for <strong><%= humanized_money_with_symbol @order.amount %></strong></p>
-      <button id="pay" class="btn btn-primary">Pay</button>
-      <script src="https://js.stripe.com/v3/"></script>
-      <script>
-        const paymentButton = document.getElementById('pay');
-        paymentButton.addEventListener('click', () => {
-          const stripe = Stripe('<%= ENV['STRIPE_PUBLISHABLE_KEY'] %>');
-          stripe.redirectToCheckout({
-            sessionId: '<%= @order.checkout_session_id %>'
+<div class="box">
+  <div class="row d-flex justify-content-center">
+    <div class="order-content">
+      <h1>My order</h1>
+      <div class="order-description">
+        <%= cl_image_tag(@order.game.photos.last.key) %>
+        <div class="description-left">
+          <div class="title-price">
+            <h2><%= @order.game.title %></h2>
+            <p><%= humanized_money_with_symbol @order.amount %></p>
+          </div>
+        </div>
+      </div>
+      <div class="order-summary">
+        <div class="order-discount">
+          <p>Discount</p>
+          <p>£0.00</p>
+        </div>
+        <div class="order-total">
+          <p>Total:</p>
+          <p><%= humanized_money_with_symbol @order.amount %></p>
+        </div>
+        <button id="pay" class="btn btn-primary">Confirm Order</button>
+        <script src="https://js.stripe.com/v3/"></script>
+        <script>
+          const paymentButton = document.getElementById('pay');
+          paymentButton.addEventListener('click', () => {
+            const stripe = Stripe('<%= ENV['STRIPE_PUBLISHABLE_KEY'] %>');
+            stripe.redirectToCheckout({
+              sessionId: '<%= @order.checkout_session_id %>'
+            });
           });
-        });
-      </script>
+        </script>
+      </div>    
     </div>
   </div>
 </div>

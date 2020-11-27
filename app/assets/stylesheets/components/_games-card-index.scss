@@ -1,10 +1,12 @@
 .games-card {
   width: 250px;
+  height: 370px;
   background: #1F1F1F;
   margin-bottom: 35px;
   border-radius: 10px;
   overflow: hidden;
   margin-right: 8px;
+  position: relative;
 }
 
 .game-image {
@@ -45,17 +47,22 @@
 
 .game-card-button {
   display: flex;
+  background-color:#7447F2;
   justify-content: flex-end;
   margin-right: 10px;
-  margin-bottom: 0;
-  p {
-    font-family: $headers-font;
-    font-weight: 500;
-    font-size: 13px;
-  }
+  margin-bottom: 14px;
+  position: absolute;
+  right: 10px;
+  bottom: 1px;
+  font-family: $headers-font;
+  color: $ghost-white;
+  font-weight: 500;
+  font-size: 13px;
+  border-radius: 8px;
+  padding: 4px 10px;
 }
 
 .game-card-text {
-  padding: 4px;
+  padding: 8px 10px 0px 8px
 }
 
