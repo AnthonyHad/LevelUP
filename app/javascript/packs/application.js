@@ -32,4 +32,15 @@ import "@mdi/font/css/materialdesignicons.css";
 document.addEventListener('turbolinks:load', () => {
   // Call your functions here, e.g:
   // initSelect2();
+  const forms =  document.querySelectorAll('#new_reply');
+  forms.forEach((form) => {
+    const textarea = form.querySelector('#reply_content');
+    textarea.addEventListener('keydown', (event) => {
+      if (event.keyCode === 13) {
+        event.preventDefault();
+        form.submit();
+      }
+    })
+  })
 });
+

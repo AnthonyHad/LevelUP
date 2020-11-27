@@ -21,7 +21,6 @@
 .gallery-cell:before {
   display: block;
   text-align: center;
-  // content: counter(gallery-cell);
   line-height: 200px;
   font-size: 80px;
   color: $light-background;
@@ -67,8 +66,8 @@
 
 // form
 .fake-form {
-  background-color: #FFF;
-  color: $secondary-background;
+  background-color: $secondary-background;
+  color: $ghost-white;
   border-radius: 24px;
   padding: 7px 14px;
   border: 1px solid $secondary-background;
@@ -77,10 +76,10 @@
 .fake-form-container {
   display: flex;
   padding-bottom: 14px;
+  padding: 14px;
   border-bottom: 1px solid $light-purple;
   .fake-form {
     width: 100%;
-
     margin-left: 2%;
   }
 }
@@ -103,6 +102,10 @@
   border: 1px solid $light-purple;
   opacity: .7;
   border-radius: 10px;
+}
+.card-show-reply .form-control {
+  background-color: $secondary-background;
+  color: $ghost-white;
 }
 
 
