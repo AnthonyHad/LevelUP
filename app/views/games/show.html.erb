@@ -143,20 +143,17 @@
               </div>
               <div class="post-form">
                 <%= simple_form_for [@game, @post] do |f| %>
-
                   <%= f.input :content, placeholder: "What's new?", label: false %>
                   <%= f.input :category, as: :hidden, input_html: { value: params[:category] || "post" } %>
                   <div class="post-form-photo">
                     <%= f.input :photo, as: :file, label: false %>
                   </div>
+                  <div class="modal-footer">
+                    <%= f.button :submit, "Post", class: "btn btn-for-post" %>
+                  </div>
+                <% end %>
               </div>
             </div>
-            <div class="modal-footer">
-
-                <%= f.button :submit, "Post", class: "btn btn-for-post" %>
-
-            </div>
-                <% end %>
           </div>
 
         </div>
