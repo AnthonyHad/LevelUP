@@ -49,5 +49,33 @@ document.addEventListener('turbolinks:load', () => {
 
 
   })
+
+  const replies = document.querySelectorAll('.see-comments');
+  const container = document.querySelectorAll('.replies-container');
+  const counter = document.getElementById('comment-number');
+
+  // console.log(container);
+  // console.log(replies);
+  replies.forEach((reply) => {
+    reply.addEventListener('click', (event) => {
+      // console.log(replies)
+      // console.log(event.currentTarget);
+      console.log(event.currentTarget.parentNode.children[5]);
+      const count = event.currentTarget.parentNode.children[5].children.length;
+      event.currentTarget.nextElementSibling.classList.toggle('hide');
+      event.currentTarget.parentNode.children[5].classList.toggle('hide');
+      event.currentTarget.classList.toggle('.more');
+      if (event.currentTarget.classList.contains('.more')) {
+        event.currentTarget.innerHTML = 'See less';
+
+      }
+      else {
+        event.currentTarget.innerHTML = `View previous comments (${count - 2})`;
+      }
+
+
+  })
+  })
+
 });
 
