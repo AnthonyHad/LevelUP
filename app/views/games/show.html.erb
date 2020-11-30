@@ -97,7 +97,7 @@
 <!-- All the replies -->
           <div class="replies-container">
             <% post.replies.each do |reply| %>
-              <div class="reply-container">
+              <div class="reply-container" id="reply-<%= reply.id %>">
                 <div class="reply-wrapper">
                   <%= image_tag reply.user.photo, class: "avatar" %>
                   <p><%= reply.content %></p>
@@ -111,9 +111,10 @@
 
 <!-- Form for 1st tier reply-->
           <div class="card-show-reply">
-            <%= simple_form_for [post, Reply.new], html: {class: 'form-inline'} do |f| %>
+            <%= simple_form_for([post, Reply.new], remote: true, html: {class: 'form-inline'}, authenticity_token: true) do |f| %>
               <%= image_tag current_user.photo, class: "avatar-small" %>
               <%= f.input :content, placeholder: "Comment on that...", label: false %>
+
             <% end  %>
           </div>
 

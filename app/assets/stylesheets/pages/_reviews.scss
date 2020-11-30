@@ -1,0 +1,25 @@
+.cards-review{
+  border: $secondary-background solid 2px;
+  border-radius: 8px;
+  padding: 24px;
+  margin-bottom: 8px;
+}
+
+.card-review{
+  background-color: $light-background;
+  border-radius: 8px;
+  padding: 16px;
+  margin-bottom: 8px;
+  position: relative;
+  .review-rating{
+    position: absolute;
+    right: 16px;
+    top: 16px;
+  }
+}
+
+.fa-star{
+  background-color: $dark-purple;
+  border-radius: 2px;
+  padding: 2px;
+}
