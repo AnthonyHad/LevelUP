@@ -1,6 +1,7 @@
 class Game < ApplicationRecord
   belongs_to :user
   has_many :posts, dependent: :destroy
+  has_many :reviews, dependent: :destroy
   has_many_attached :photos
   monetize :price_cents
   has_many :followings

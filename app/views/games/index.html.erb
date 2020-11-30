@@ -44,20 +44,12 @@
     <div class="container-fluid filters-content">
       <h3 class="mb-0">Filter Games</h3>
       <div class="filters-type">
-      <h5>Platform</h5>
-        <ul>
-          <li class="filter">Windows</li>
-          <li class="filter">MacOs</li>
-          <li class="filter">Linux</li>
-          <li class="filter">Web</li>
-        </ul>
-        <h5>Price</h5>
-        <ul>
-          <li class="filter">Free</li>
-          <li class="filter">On Sale</li>
-          <li class="filter"> £10 or less</li>
-          <li class="filter"> £20 or less</li>
-        </ul>
+        <%= simple_form_for :search, url: games_path, method: :get do |f| %>
+        <%= f.input :platform, collection:["Windows", "MacOS", "Linux", "Web"], as: :check_boxes, input_html: { class: "tag-selector" },
+                  item_wrapper_class: 'tag-item' %>
+        <%= f.input :price, collection:[["Free", 1], ["£10 or less", 1000], ["£20 or less", 2000]], as: :radio_buttons %>
+        <%= f.submit "Filter"%>
+        <% end  %>
         </div>
     </div>
   </div>
