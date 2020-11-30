@@ -14,7 +14,7 @@
 }
 
 .banner-content{
-  padding: 0 152px;
+  padding-left: 152px;
   position: relative;
   min-height: 130px;
   .avatar{
@@ -29,9 +29,36 @@
     font-weight: bold;
     font-size: 11px;
     opacity: 0.43;
-    right: 15px;
+    right: 0;
     top: 0;
   }
+  .game-box{
+    background-color: $dark-background;
+    border-radius: 8px;
+    position: absolute;
+    right: 0;
+    bottom: 8px;
+    padding: 8px;
+    display: flex;
+    text-align: center;
+    div:not(:first-child){
+      margin-left: 16px;
+    }
+    .box-info{
+      font-weight: bold;
+      font-size: 11px;
+      opacity: 0.43;
+      margin: 0;
+    }
+  }
+}
+
+.box-title{
+  margin: 0;
+  text-decoration: underline;
+  text-decoration-color: $dark-purple;
+  font-weight: bold;
+  font-size: 15px;
 }
 
 .banner-top{
@@ -62,12 +89,12 @@
 .banner-description{
   font-size: 11px;
   opacity: 0.63;
+  max-width: 700px;
 }
 
 .banner-order{
   display: flex;
   align-items: center;
-  margin-bottom: 24px;
   h3{
     font-weight: bold;
     font-size: 15px;
