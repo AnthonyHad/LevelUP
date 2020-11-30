@@ -3,8 +3,30 @@
     <%= cl_image_tag(@game.photos.last.key) %>
   </div>
   <div class="box banner-content">
-    <%= cl_image_tag(@game.user.photo.key, class: "avatar") %>
+    <%= cl_image_tag(@game.photos.first.key, class: "avatar") %>
     <p class="developer">Developed by <%= @game.user.nickname %></p>
+    <div class="game-box">
+      <div>
+      <p class="box-title">Reviews</p>
+      <% if @game.reviews.empty? %>
+        <p class="box-info"><i>No reviews available</i></p>
+      <% else %>
+        <% @review_tally = 0.00 %>
+        <% @game.reviews.each do |review| %>
+          <% @review_tally += review.rating %>
+        <% end %>
+        <p class="box-info"><%= @review_tally = (@review_tally / @game.reviews.count)%>/5</p>
+      <% end %>
+      </div>
+      <div>
+        <p class="box-title">Published</p>
+        <p class="box-info"><%= @game.created_at.strftime("%d/%m/%Y") %></p>
+      </div>
+      <div>
+        <p class="box-title">Version</p>
+        <p class="box-info">1.0.1</p>
+      </div>
+    </div>
     <div class="banner-top">
       <h1 class="banner-title"><%= @game.title %></h1>
       <div class="system-icons">
