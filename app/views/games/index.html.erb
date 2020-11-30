@@ -11,7 +11,16 @@
           <h4><%= game.title %></h4>
           <p class="game-tag"> <%= "##{game.category}"  %> </p>
           <p><%= game.description %></p>
-          <div class="hero-button">Follow Game!</div>
+          <% @current_following = current_user.followings.find { |item| item[:game_id] == game.id} %>
+          <% if @current_following %>
+            <div class="hero-button" id="following-button">
+              <%= link_to "✓ Following", following_path(@current_following.id), method: :delete %>
+            </div>
+          <% else %>
+          <div class="hero-button">
+              <%= link_to "+ Follow game!", game_followings_path(game), method: :post %>
+          </div>
+          <% end %>
         </div>
         </div>
       <% end %>

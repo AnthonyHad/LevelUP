@@ -7,6 +7,7 @@ class User < ApplicationRecord
   has_many :orders
   has_many :reviews
   has_one_attached :photo, dependent: :destroy
+  has_many :followings
 
   acts_as_voter
 
