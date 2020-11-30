@@ -3,7 +3,7 @@
     <%= cl_image_tag(@game.photos.last.key) %>
   </div>
   <div class="box banner-content">
-    <%= cl_image_tag(@game.user.photo.key, class: "avatar") %>
+    <%= cl_image_tag(@game.photos.first.key, class: "avatar") %>
     <p class="developer">Developed by <%= @game.user.nickname %></p>
     <div class="game-box">
       <div>
