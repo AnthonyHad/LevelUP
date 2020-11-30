@@ -89,24 +89,42 @@
 
 <!-- number of commnets -->
           <% if post.replies.count == 1 %>
-            <p id="comment-number"><%= post.replies.count %> comment</p>
+            <p id="comment-number" data-post-count="<%= post.replies.count %>"><%= post.replies.count %> comment</p>
           <% else %>
             <p id="comment-number"><%= post.replies.count %> comments</p>
           <% end %>
           <hr>
-<!-- All the replies -->
-          <div class="replies-container">
-            <% post.replies.each do |reply| %>
-              <div class="reply-container" id="reply-<%= reply.id %>">
-                <div class="reply-wrapper">
-                  <%= image_tag reply.user.photo, class: "avatar" %>
-                  <p><%= reply.content %></p>
-                </div>
-                <p class="time"><%= time_ago_in_words(reply.created_at) %></p>
-              </div>
 
+<!-- All the replies -->
+          <% if post.replies.count > 0 %>
+            <div class="replies-container hide">
+              <% post.replies.each do |reply| %>
+                <div class="reply-container" id="reply-<%= reply.id %>">
+                  <div class="reply-wrapper">
+                    <%= image_tag reply.user.photo, class: "avatar" %>
+                    <p><%= reply.content %></p>
+                  </div>
+                  <p class="time"><%= time_ago_in_words(reply.created_at) %></p>
+                </div>
+              <% end %>
+            </div>
+          <% end %>
+
+<!-- Just last two replies -->
+          <% if post.replies.count > 1 %>
+          <div class="see-comments">View previous comments (<%= post.replies.count - 2 %>)</div>
+          <div class="replies-container">
+            <% post.replies[-2..-1].each do |reply| %>
+              <div class="reply-container" id="reply-<%= reply.id %>">
+                  <div class="reply-wrapper">
+                    <%= image_tag reply.user.photo, class: "avatar" %>
+                    <p><%= reply.content %></p>
+                  </div>
+                  <p class="time"><%= time_ago_in_words(reply.created_at) %></p>
+              </div>
             <% end %>
           </div>
+          <% end %>
 
 
 <!-- Form for 1st tier reply-->
