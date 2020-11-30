@@ -39,6 +39,8 @@ gem 'stripe'
 
 gem 'stripe_event'
 
+gem 'acts_as_votable'
+
 gem 'autoprefixer-rails'
 gem 'font-awesome-sass'
 gem 'simple_form'
