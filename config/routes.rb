@@ -15,6 +15,12 @@ Rails.application.routes.draw do
     resources :replies, only: [:create]
   end
 
+  resources :posts, only: [] do
+    member do
+      put "like" => "posts#like"
+    end
+  end
+
   resources :orders, only: [:show, :create] do
     resources :payments, only: :new
   end

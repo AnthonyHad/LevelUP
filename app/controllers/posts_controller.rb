@@ -43,6 +43,13 @@ class PostsController < ApplicationController
     redirect_to game_path(@post.game), notice: "Post was succesfully deleted."
   end
 
+  def like
+    @post = Post.find(params[:id])
+    if params[:format] == 'like'
+       @post.liked_by current_user
+    end
+  end
+
   private
 
   def post_params
