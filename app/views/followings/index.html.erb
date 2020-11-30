@@ -32,26 +32,26 @@
           <h5>Home</h5>
           <% if following.game.posts.where(category: "post").exists? %>
             <p><%= following.game.posts.where(category: "post").last.content.truncate(240)%></p>
-            <p class="text-right">Read more...</p>
+            <p class="text-right"><%= link_to "Read more", game_path(following.game)%></p>
           <% else %>
-            <p>No posts :(</p>
+            <p><em>No posts available</em></p>
           <% end %>        </div>
         <div class="col-4">
           <h5>Discussion</h5>
           <% if following.game.posts.where(category: "discussion").exists? %>
             <p><%= following.game.posts.where(category: "discussion").last.content.truncate(240)%></p>
-            <p class="text-right">Read more...</p>
+            <p class="text-right"><%= link_to "Read more", discussion_game_posts_path(following.game)%></p>
           <% else %>
-            <p>No posts :(</p>
+            <p><em>No posts available</em></p>
           <% end %>
         </div>
         <div class="col-4">
           <h5>Devlogs</h5>
           <% if following.game.posts.where(category: "devlog").exists? %>
             <p><%= following.game.posts.where(category: "devlog").last.content.truncate(240)%></p>
-            <p class="text-right">Read more...</p>
+            <p class="text-right"><%= link_to "Read more", devlogs_game_posts_path(following.game)%></p>
           <% else %>
-            <p>No posts :(</p>
+            <p><em>No posts available</em></p>
           <% end %>
         </div>
       </div>
