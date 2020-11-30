@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   root to: 'pages#home'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   resources :games, only: [:index, :show, :new, :create] do
+    resources :followings, only: [ :create ]
     resources :posts, only: [:new, :create] do
       collection do
         get :discussion
@@ -10,6 +11,8 @@ Rails.application.routes.draw do
       end
     end
   end
+
+  resources :followings, only: [ :index, :destroy ]
 
   resources :posts, only: [:destroy] do
     resources :replies, only: [:create]

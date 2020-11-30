@@ -6,6 +6,7 @@ class User < ApplicationRecord
   has_many :posts
   has_many :orders
   has_one_attached :photo, dependent: :destroy
+  has_many :followings
 
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable

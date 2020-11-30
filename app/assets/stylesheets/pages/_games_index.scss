@@ -112,11 +112,21 @@
   text-align: center;
   margin: 60px 30px 0px 15px;
   padding: 4px;
+  a {
+    color: $ghost-white;
+  }
 
   &:hover {
     background-color: #8E67F6;
   }
 
+}
+
+#following-button {
+  background-color: #8E67F6;
+  a {
+    text-decoration: none;
+  }
 }
 
 // .w-75 {

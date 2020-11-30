@@ -1,0 +1,60 @@
+<div class="container">
+  <h1 class="my-3">Following</h1>
+
+  <% @followings.each do | following | %>
+    <div class="following-card mb-3">
+      <div class="row border-bottom">
+        <div class="col-9 d-flex mb-2">
+          <div><%= cl_image_tag(following.game.photos.last.key, class: "avatar following-avatar mr-3") %></div>
+          <div>
+            <div class="banner-top">
+              <h1 class="banner-title"><%= following.game.title %></h1>
+              <div class="system-icons">
+                <i class="fab fa-windows"></i>
+                <i class="fab fa-apple"></i>
+                <i class="fab fa-linux"></i>
+              </div>
+                <div class="hero-button m-0 ml-3" id="following-button">
+                  <%= link_to "✓ Following", following_path(following), method: :delete %>
+                </div>
+            </div>
+            <p class="banner-category">#<%= following.game.category %></p>
+            <p class="banner-description"><%= following.game.description %></p>
+          </div>
+        </div>
+        <div class="col-3 text-right">
+          <p class="developer"><%= following.game.user.nickname %> <%= cl_image_tag(following.game.user.photo.key, class: "avatar ml-2") %></p>
+        </div>
+      </div>
+      <h4 class="mt-3">Latest Posts</h4>
+      <div class="row">
+        <div class="col-4">
+          <h5>Home</h5>
+          <% if following.game.posts.where(category: "post").exists? %>
+            <p><%= following.game.posts.where(category: "post").last.content.truncate(240)%></p>
+            <p class="text-right">Read more...</p>
+          <% else %>
+            <p>No posts :(</p>
+          <% end %>        </div>
+        <div class="col-4">
+          <h5>Discussion</h5>
+          <% if following.game.posts.where(category: "discussion").exists? %>
+            <p><%= following.game.posts.where(category: "discussion").last.content.truncate(240)%></p>
+            <p class="text-right">Read more...</p>
+          <% else %>
+            <p>No posts :(</p>
+          <% end %>
+        </div>
+        <div class="col-4">
+          <h5>Devlogs</h5>
+          <% if following.game.posts.where(category: "devlog").exists? %>
+            <p><%= following.game.posts.where(category: "devlog").last.content.truncate(240)%></p>
+            <p class="text-right">Read more...</p>
+          <% else %>
+            <p>No posts :(</p>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>
