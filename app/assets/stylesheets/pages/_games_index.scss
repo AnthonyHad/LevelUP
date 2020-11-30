@@ -71,21 +71,38 @@
   margin-top: 60px;
 }
 
-.filter {
+.filter-button {
+  font-family: "Montserrat", "sans-serif";
+  font-weight: 600;
+  color: #F8F8FF;
+  font-size: 12px;
+  border-color: #8E67F6;
+  border-radius: 6px;
+  border-style: solid;
+  text-align: center;
+  background-color: transparent;
+  margin: 5px 13px;
+  padding: 0px 43px;
   &:hover {
-    background-color: $secondary-background;
-    cursor: pointer;
-    transition: 0.2s;
-    border-radius: 8px;
-    border-color: #8E67F6;
-    border-style: solid;
-    width: 100%;
-    border-width: thin;
-    padding: 3px 15px;
-    text-align: center;
-
+    background-color: #8E67F6;
   }
 }
+
+// .filter {
+//   &:hover {
+//     background-color: $secondary-background;
+//     cursor: pointer;
+//     transition: 0.2s;
+//     border-radius: 8px;
+//     border-color: #8E67F6;
+//     border-style: solid;
+//     width: 100%;
+//     border-width: thin;
+//     padding: 3px 15px;
+//     text-align: center;
+
+//   }
+// }
 
 .hero {
   height: 350px;
@@ -110,6 +127,7 @@
 .image-sidebox {
   padding: 10px;
   margin-top: 5px;
+  width: 200px;
   &:hover a {
     text-decoration: none;
   }

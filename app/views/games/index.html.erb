@@ -39,7 +39,7 @@
         <%= f.input :platform, collection:["Windows", "MacOS", "Linux", "Web"], as: :check_boxes, input_html: { class: "tag-selector" },
                   item_wrapper_class: 'tag-item' %>
         <%= f.input :price, collection:[["Free", 1], ["£10 or less", 1000], ["£20 or less", 2000]], as: :radio_buttons %>
-        <%= f.submit "Filter"%>
+        <%= f.submit "Filter", class:"filter-button"%>
         <% end  %>
         </div>
     </div>
