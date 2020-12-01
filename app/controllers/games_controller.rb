@@ -13,14 +13,15 @@ class GamesController < ApplicationController
       else
         @games = Game.all
       end
+    elsif params[:query].present?
+      @games = Game.search_by_title_and_description_and_category(params[:query])
     else
       @games = Game.all
     end
 
       # elsif search[:platform].length > 2 && !search[:price].last.empty?
       #   @games = (Game.where(platform: search[:platform][1]).and(Game.where(platform: search[:platform][2]))).where("price_cents < ?", search[:price].last.to_i)
-    # if params[:query].present?
-    #   @games = Game.search_by_title_and_description_and_category(params[:query])
+
     # elsif params[:platform].present?
     #   @games = @games.where(platform: params[:platform])
     # elsif params[:price_cents].present?
