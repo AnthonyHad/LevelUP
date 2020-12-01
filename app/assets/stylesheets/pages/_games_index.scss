@@ -53,7 +53,7 @@
 
 .filters-content{
   position:sticky;
-  top: 0;
+  top: 50px;
   h3 {
     font-family: $headers-font;
     font-weight: 700;
@@ -126,8 +126,8 @@
 
 .image-sidebox {
   padding: 10px;
+  width: 25%;
   margin-top: 5px;
-  width: 200px;
   &:hover a {
     text-decoration: none;
   }
