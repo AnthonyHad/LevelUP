@@ -11,9 +11,7 @@ class Game < ApplicationRecord
   validates :title, presence: true
   validates :description, presence: true
   validates :category, presence: true
-  validates :platforms, presence: true
   validates :price, presence: true
-  validates :photos, presence: true
 
 
   include PgSearch::Model
