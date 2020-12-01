@@ -9,6 +9,11 @@ class Game < ApplicationRecord
   has_many :followings, dependent: :destroy
   has_many :orders, dependent: :destroy
   validates :title, presence: true
+  validates :description, presence: true
+  validates :category, presence: true
+  validates :platforms, presence: true
+  validates :price, presence: true
+  validates :photos, presence: true
 
 
   include PgSearch::Model
