@@ -1,4 +1,5 @@
 class PostsController < ApplicationController
+
   def new
     @post = Post.new
     @game = Game.find(params[:game_id])
@@ -22,8 +23,6 @@ class PostsController < ApplicationController
     end
   end
 
-
-
   def discussion
     @post = Post.new
     @game = Game.find(params[:game_id])
@@ -45,8 +44,14 @@ class PostsController < ApplicationController
 
   def like
     @post = Post.find(params[:id])
-    if params[:format] == 'like'
-       @post.liked_by current_user
+    @post.liked_by current_user
+  end
+
+  def update_counter
+    @post = Post.find(params[:id])
+    respond_to do |format|
+      format.html
+      format.json { render json: { likes: @post.get_likes } }
     end
   end
 

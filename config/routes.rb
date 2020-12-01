@@ -22,6 +22,7 @@ Rails.application.routes.draw do
   resources :posts, only: [] do
     member do
       put "like" => "posts#like"
+      get "update_counter" => "posts#update_counter"
     end
   end
 
