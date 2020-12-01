@@ -77,5 +77,22 @@ document.addEventListener('turbolinks:load', () => {
   })
   })
 
+  const followingBtns = document.querySelectorAll("#following-button")
+
+  followingBtns.forEach((btn) => {
+    btn.addEventListener("click", (event) => {
+      event.currentTarget.innerText = "+ Follow game!"
+      event.currentTarget.classList.replace("following-button", "follow-button")
+    })
+  });
+
+  const followBtns = document.querySelectorAll("#follow-button")
+
+  followBtns.forEach((btn) => {
+    btn.addEventListener("click", (event) => {
+      event.currentTarget.innerText = "✓ Following"
+      event.currentTarget.classList.replace("follow-button", "following-button");
+    })
+  });
 });
 
