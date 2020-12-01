@@ -17,6 +17,39 @@
   }
 }
 
+
+// left side
+.row-left {
+  position: sticky;
+  top: 0;
+}
+.content-show-page {
+  padding-top: 14px;
+}
+.devlog-title-show-page {
+  padding-top: 14px;
+  p {
+    margin-bottom: 7px;
+    color: $electric-red;
+  }
+  h5 {
+    opacity: .6;
+  }
+
+}
+#devlog-content {
+  padding-top: 14px;
+}
+
+#review-content-show-page {
+  padding-top: 14px;
+}
+
+
+// right side
+#no-posts {
+  padding-top: 21px;
+}
 /* cell number */
 .gallery-cell:before {
   display: block;
