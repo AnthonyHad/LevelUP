@@ -27,6 +27,7 @@ require("channels")
 import "bootstrap";
 import "@mdi/font/css/materialdesignicons.css";
 import $ from 'jquery';
+import "controllers"
 
 // Internal imports, e.g:
 // import { initSelect2 } from '../components/init_select2';
@@ -50,4 +51,6 @@ document.addEventListener('turbolinks:load', () => {
 
   })
 });
+
+
 
