@@ -84,13 +84,17 @@
                         <%= hidden_field_tag 'game_id', game.id %>
                         <%= submit_tag humanized_money_with_symbol(game.price), class:"game-card-button"%>
                         <% end %>
-
                     </div>
+
                   </div>
                 </div>
             <% end %>
+            <%= will_paginate @games %>
           </div>
         </div>
     </div>
   </div>
+
 </div>
+
+
