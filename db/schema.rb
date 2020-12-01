@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_11_30_121830) do
+ActiveRecord::Schema.define(version: 2020_12_01_100148) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -57,6 +57,15 @@ ActiveRecord::Schema.define(version: 2020_11_30_121830) do
     t.index ["user_id"], name: "index_games_on_user_id"
   end
 
+  create_table "games_platforms", force: :cascade do |t|
+    t.bigint "game_id", null: false
+    t.bigint "platform_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["game_id"], name: "index_games_platforms_on_game_id"
+    t.index ["platform_id"], name: "index_games_platforms_on_platform_id"
+  end
+
   create_table "orders", force: :cascade do |t|
     t.string "state"
     t.integer "amount_cents", default: 0, null: false
@@ -67,6 +76,12 @@ ActiveRecord::Schema.define(version: 2020_11_30_121830) do
     t.datetime "updated_at", precision: 6, null: false
     t.index ["game_id"], name: "index_orders_on_game_id"
     t.index ["user_id"], name: "index_orders_on_user_id"
+  end
+
+  create_table "platforms", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "posts", force: :cascade do |t|
@@ -135,6 +150,8 @@ ActiveRecord::Schema.define(version: 2020_11_30_121830) do
   add_foreign_key "followings", "games"
   add_foreign_key "followings", "users"
   add_foreign_key "games", "users"
+  add_foreign_key "games_platforms", "games"
+  add_foreign_key "games_platforms", "platforms"
   add_foreign_key "orders", "games"
   add_foreign_key "orders", "users"
   add_foreign_key "posts", "games"

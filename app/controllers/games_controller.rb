@@ -5,11 +5,22 @@ class GamesController < ApplicationController
     if params[:search].present?
       search = params[:search]
       if search[:platform].last.present? && search[:price].present?
-        @games = Game.where(platform: search[:platform]).where("price_cents < ?", search[:price].to_i)
+        @games = Game.where("price_cents < ?", search[:price].to_i).select do |game|
+          game.platform_ids.select do |id|
+            search[:platform].include?("#{id}")
+          end.present?
+        end
+        # @games = Game.where(platform: search[:platform]).where("price_cents < ?", search[:price].to_i)
       elsif search[:platform].last.empty?
         @games = Game.where("price_cents < ?", search[:price].to_i)
       elsif search[:platform].last.present?
-        @games = Game.where(platform: search[:platform])
+        # @games = Game.joins(:games_platforms).where(platform_id: search[:platform])
+        @games = Game.all.select do |game|
+          game.platform_ids.select do |id|
+            search[:platform].include?("#{id}")
+          end.present?
+        end
+        # @games = Game.where(platform: search[:platform])
       else
         @games = Game.all
       end
@@ -42,6 +53,7 @@ class GamesController < ApplicationController
   end
 
   def create
+
     @game = Game.new(games_params)
     @game.user = current_user
     if @game.save
@@ -54,6 +66,6 @@ class GamesController < ApplicationController
   private
 
   def games_params
-    params.require(:game).permit(:title, :description, :category, :price, photos: [])
+    params.require(:game).permit(:title, :description, :category, :price, platform_ids: [], photos: [])
   end
 end
