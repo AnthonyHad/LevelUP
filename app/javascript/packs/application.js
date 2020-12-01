@@ -43,7 +43,6 @@ document.addEventListener('turbolinks:load', () => {
       if (event.keyCode === 13) {
         event.preventDefault();
         form.submit();
-
       }
     })
 

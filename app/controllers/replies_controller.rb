@@ -6,6 +6,7 @@ class RepliesController < ApplicationController
 
     if @reply.save
       redirect_to game_path(@reply.post.game, anchor: "reply-#{@reply.id}")
+
     else
       flash[:error] = "Something went wrong try again please!" #flashed to the user an error message if it doesn't save
       redirect_to request.referer
