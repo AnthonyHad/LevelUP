@@ -6,6 +6,7 @@
           <%= f.input :title, placeholder: "Title" %>
           <%= f.input :description, placeholder: "Description" %>
           <%= f.input :category, placeholder: "Category" %>
+          <%= f.association :platforms, placeholder: "Platforms", collection: Platform.all, as: :check_boxes %>
           <%= f.input :price%>
           <%= f.input :photos, as: :file, input_html: { multiple: true } %>
           <%= f.button :submit, "Add now!", class: "btn btn-success submit-button" %>

@@ -30,12 +30,16 @@
     <div class="banner-top">
       <h1 class="banner-title"><%= @game.title %></h1>
       <div class="system-icons">
-        <% if @game.platform == "Windows" %>
-          <i class="fab fa-windows"></i>
-        <% elsif @game.platform == "MacOS" %>
-          <i class="fab fa-apple"></i>
-        <% else %>
-          <i class="fab fa-linux"></i>
+        <% @game.platforms.each do |platform| %>
+          <% if platform.name == "Windows" %>
+            <i class="fab fa-windows"></i>
+          <% elsif platform.name == "MacOS" %>
+            <i class="fab fa-apple"></i>
+          <% elsif platform.name == "Linux" %>
+            <i class="fab fa-linux"></i>
+            <% elsif platform.name == "Web" %>
+            <p>Web</p>
+          <% end %>
         <% end %>
       </div>
     </div>

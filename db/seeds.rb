@@ -8,6 +8,7 @@
 
 
 User.destroy_all
+Platform.destroy_all
 puts "Creating users..."
 
 # usera = User.create! :nickname => 'ConcernedApe', :email => 'concerned_ape@stardewvalley.com', :password => 'topsecret', :password_confirmation => 'topsecret'
@@ -115,6 +116,18 @@ dir_array.each do |dir|
     puts "Images attached!"
     i += 1
   end
+end
+
+
+puts "Seeding Platforms"
+platforms = ["Windows", "MacOS", "Linux", "Web"]
+platforms.each do |platform|
+  Platform.create(name: platform)
+end
+
+Game.all.each do |game|
+  game.platform_ids = Platform.pluck(:id).sample(2)
+  game.save
 end
 
 puts "Finished!"
