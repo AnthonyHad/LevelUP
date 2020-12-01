@@ -6,8 +6,10 @@ class Game < ApplicationRecord
   has_many :platforms, through: :games_platforms
   has_many_attached :photos
   monetize :price_cents
-  has_many :followings
+  has_many :followings, dependent: :destroy
   has_many :orders, dependent: :destroy
+  validates :title, presence: true
+
 
   include PgSearch::Model
   pg_search_scope :search_by_title_and_description_and_category,
