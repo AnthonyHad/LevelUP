@@ -9,10 +9,10 @@ export default class extends Controller {
       fetch(`/posts/${id}/update_counter`, { headers: { accept: "application/json" } })
       .then(response => response.json())
       .then((data) => {
-        console.log(data);
         document.getElementById(`discussion-${id}`).innerText = data.likes.length;
       });
     }, 
     500)
+    let liked = document.querySelector(".fa-thumbs-up").classList.add("liked");
   }
 }
