@@ -3,8 +3,9 @@ import { Controller } from "stimulus";
 export default class extends Controller {
   static targets = [ 'count' ];
 
-  refresh(event) {
+  refresh_discussion(event) {
     const id = event.currentTarget.dataset.id;
+    let liked = event.currentTarget.classList.add("liked");
     setTimeout( () => { 
       fetch(`/posts/${id}/update_counter`, { headers: { accept: "application/json" } })
       .then(response => response.json())
@@ -13,6 +14,18 @@ export default class extends Controller {
       });
     }, 
     500)
-    let liked = document.querySelector(".fa-thumbs-up").classList.add("liked");
+  }
+
+  refresh_devlogs(event) {
+    const id = event.currentTarget.dataset.id;
+    let liked = event.currentTarget.classList.add("liked");
+    setTimeout( () => { 
+      fetch(`/posts/${id}/update_counter`, { headers: { accept: "application/json" } })
+      .then(response => response.json())
+      .then((data) => {
+        document.getElementById(`devlog-${id}`).innerText = data.likes.length;
+      });
+    }, 
+    500)
   }
 }
