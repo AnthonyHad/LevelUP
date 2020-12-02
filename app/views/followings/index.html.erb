@@ -2,7 +2,7 @@
   <h1 class="my-3">Watch List</h1>
 
   <% unless @followings.empty? %>
-    <% @followings.each do | following | %>
+    <% @followings.reverse.each do | following | %>
       <div class="following-card mb-3">
         <div class="row border-bottom">
           <div class="col-9 d-flex mb-2">
@@ -11,9 +11,17 @@
               <div class="banner-top">
                 <h1 class="banner-title"><%= following.game.title %></h1>
                 <div class="system-icons">
-                  <i class="fab fa-windows"></i>
-                  <i class="fab fa-apple"></i>
-                  <i class="fab fa-linux"></i>
+                  <% following.game.platforms.each do |platform| %>
+                    <% if platform.name == "Windows" %>
+                      <i class="fab fa-windows"></i>
+                    <% elsif platform.name == "MacOS" %>
+                      <i class="fab fa-apple"></i>
+                    <% elsif platform.name == "Linux" %>
+                      <i class="fab fa-linux"></i>
+                      <% elsif platform.name == "Web" %>
+                      <p>Web</p>
+                    <% end %>
+                  <% end %>
                 </div>
                   <div class="hero-button m-0 ml-3 following-button">
                     Following
