@@ -17,8 +17,11 @@
 
 .upload-photo {
   cursor: pointer;
-  font-weight: 500;
   background: $secondary-background;
   padding: 10px;
   border-radius: 10px;
+  margin: 0;
+  &:hover{
+    background: $light-background;
+  }
 }

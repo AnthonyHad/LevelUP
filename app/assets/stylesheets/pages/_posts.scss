@@ -54,6 +54,21 @@
   margin-bottom: 24px;
 }
 
+.post-like{
+  display: flex;
+  align-items: center;
+  p{
+    margin: 0;
+  }
+  .counter{
+    margin-left: 16px;
+    display: flex;
+  }
+  .text-like{
+    margin-left: 6px;
+  }
+}
+
 .card-reply{
   background-color: $light-background;
   border-radius: 8px;
@@ -70,9 +85,12 @@
   margin-left: 32px;
   margin-right: 32px;
   margin-bottom: 8px;
-  .form-control{
-    border-radius: 8px;
-  }
+  .form-control {
+    border: none;
+    border-radius: 10px;
+    background-color: $secondary-background;
+    color: $ghost-white;
+   }
 }
 
 .card-devlogs{
@@ -116,6 +134,7 @@
 .image-post{
   width: 100px;
   height: 100px;
+  margin-bottom: 16px;
   &:hover {
     cursor: pointer;
   }
