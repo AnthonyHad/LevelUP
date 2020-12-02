@@ -1,1 +1,77 @@
 // Specific CSS for your home-page
+.landing-title {
+  font-weight: 700;
+  -webkit-transition: all ease-in-out 250ms;
+  -moz-transition: all ease-in-out 250ms;
+  -o-transition:all ease-in-out 250ms;
+  transition: all ease-in-out 250ms;
+}
+
+
+@keyframes float {
+  0% {
+    transform: translatey(0px);
+  }
+  50% {
+    transform: translatey(-20px);
+  }
+  100% {
+    transform: translatey(0px);
+  }
+}
+
+.landing-logo {
+  width: 150px;
+  height: 150px;
+  transform: translatey(0px);
+  animation: float 6s ease-in-out infinite;
+  &:hover {
+    animation-play-state: paused;
+  }
+}
+
+.landing-logo:hover + .boxy-boy > .landing-title {
+  transform: translate(0px,-8px);
+
+}
+
+.landing-box {
+  padding-top: 25vh;
+}
+
+.darken {
+  background-size: cover;
+  height: 95vh;
+  background-image:
+    linear-gradient(
+      rgba(0, 0, 0, 0.5),
+      rgba(0, 0, 0, 0.5)
+    ),
+    url(https://source.unsplash.com/WcrqKjgMPfI);
+}
+
+.journey-button {
+  font-family: $headers-font;
+  font-weight: 600;
+  color: $ghost-white;
+  font-size: 12px;
+  border-color: #8E67F6;
+  background-color: #8E67F6;
+  border-radius: 6px;
+  border-style: solid;
+  text-align: center;
+  padding: 4px;
+  width: 20%;
+  align-self: end;
+  margin: 0;
+  opacity: 0.90;
+  transition: 500ms;
+  a {
+    color: $ghost-white;
+    text-decoration: none;
+  }
+  &:hover {
+    opacity: 1;
+    transition: 500ms;
+  }
+}

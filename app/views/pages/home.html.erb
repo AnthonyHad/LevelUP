@@ -1,2 +1,17 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+<div class="module darken">
+  <div class="row landing-box d-flex justify-content-center">
+    <div class="col-6 text-center">
+      <%= image_tag "biglogo.png", alt: "main logo", class: "landing-logo" %>
+      <div class=" boxy-boy d-flex justify-content-center">
+        <h1 class="">Level</h1>
+        <h1 class="landing-title up">UP</h1>
+      </div>
+      <h3 class="mt-2"><em>A gaming marketplace bridging the gap between <strong>developers</strong> and <strong>gamers</strong></em></h3>
+      <div class="d-flex justify-content-end mr-5 mt-3">
+        <div class="journey-button">
+          <%= link_to "Start Journey", games_path%>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
