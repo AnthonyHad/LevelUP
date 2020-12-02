@@ -77,11 +77,12 @@
           </div>
           <div class="d-flex flex-wrap justify-content-between">
             <% @games.each do |game| %>
+            <%= link_to game_path(game), class:"text-decoration-none" do %>
                 <div class="games-card">
                   <div class="game-card-info">
                     <%= cl_image_tag(game.photos.last.key, class: "game-image") %>
                     <div class="game-card-text">
-                      <%= link_to game.title, game_path(game) %>
+                      <p class="mb-0 game-title"><%= game.title %></p>
                       <p class="game-tag"><%="##{game.category}"%></p>
                       <p class="game-description text-break"><%= game.description %></p>
                         <%= form_tag orders_path do %>
@@ -89,9 +90,9 @@
                         <%= submit_tag humanized_money_with_symbol(game.price), class:"game-card-button"%>
                         <% end %>
                     </div>
-
                   </div>
                 </div>
+            <% end %>
             <% end %>
           </div>
         </div>
@@ -101,4 +102,6 @@
 
 <!-- will_paginate @games
  -->
+
+<!-- submit_tag humanized_money_with_symbol(game.price), class:"game-card-button" -->
 

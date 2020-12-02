@@ -10,6 +10,15 @@
 //   height: 100vh;
 // }
 
+.col-form-label {
+  font-family: $headers-font;
+  font-weight: bold;
+}
+.form-check {
+  font-family: $body-font;
+  font-size: 0.8rem;
+}
+
 .tag-item {
   display: inline-block;
 }
@@ -143,6 +152,7 @@
     color: #aeaeb2;
     font-size: 12px;
     font-style: italic;
+    margin-top: 8px;
   }
   .game-tag {
     color: $light-purple;
@@ -239,6 +249,7 @@
   border: none;
   padding: 10px;
   border-radius: 10px 0px 0px 10px;
+  width: 280px;
 }
 
 .btn-search-index{
@@ -251,8 +262,8 @@
 }
 
 .games-search {
-  padding: 10px;
-  margin-bottom: 20px;
+  padding: 10px 0px;
+  margin-bottom: 5px;
   h2 {
     font-family: $headers-font;
     font-weight: 700;
