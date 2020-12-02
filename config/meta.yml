@@ -2,4 +2,3 @@ meta_product_name: "LevelUP"
 meta_title: "LevelUP | A Social Gaming Marketplace"
 meta_description: "A gaming marketplace fostering communication between developers and gamers"
 meta_image: "cover.png" # should exist in `app/assets/images/`
-twitter_account: "@anthonyHAD"   # required for Twitter Cards
