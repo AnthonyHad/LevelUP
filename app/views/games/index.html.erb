@@ -13,8 +13,8 @@
           <p><%= game.description %></p>
 
 
-          <% if user_signed_in? %>
-            <% @current_following = current_user.followings.find { |item| item[:game_id] == game.id} %>
+            <% @current_following = current_user.followings.find { |item| item[:game_id] == game.id} if user_signed_in?%>
+
             <% if @current_following %>
               <div class="following-button" id="following-button">
                 <%= link_to "✓ Following", following_path(@current_following.id), method: :delete %>
@@ -24,7 +24,7 @@
                 <%= link_to "+ Follow game!", game_followings_path(game), method: :post %>
             </div>
             <% end %>
-          <% end %>
+
 
 
         </div>
