@@ -9,7 +9,7 @@
             <div><%= cl_image_tag(following.game.photos.last.key, class: "avatar following-avatar mr-3") %></div>
             <div>
               <div class="banner-top">
-                <h1 class="banner-title"><%= following.game.title %></h1>
+                <h1 class="banner-title"><%= link_to following.game.title, game_path(following.game), id: "following-title"%></h1>
                 <div class="system-icons">
                   <% following.game.platforms.each do |platform| %>
                     <% if platform.name == "Windows" %>
