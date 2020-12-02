@@ -16,17 +16,11 @@
 }
 
 .btn-for-post {
-  background-color: $secondary-background;
+  background-color: $dark-purple;
   width: 100%;
-  opacity: .7;
-  &:hover {
-    opacity: 1;
-  }
-
   color: $ghost-white;
-
   &:hover {
-    color: $ghost-white;
-
+    color: $secondary-text;
   }
 }
+
