@@ -41,7 +41,11 @@
         <% if @game.reviews.empty? %>
           <p class="box-info"><i>No reviews available</i></p>
         <% else %>
-          <p class="box-info"><%= @game.reviews.length %></p>
+          <% @review_tally = 0.00 %>
+          <% @game.reviews.each do |review| %>
+            <% @review_tally += review.rating %>
+          <% end %>
+          <p class="box-info"><%= (@review_tally = (@review_tally / @game.reviews.count)).round(2)%>/5 (<%= @game.reviews.length %>)</p>
         <% end %>
         </div>
       <% end %>
