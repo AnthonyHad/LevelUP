@@ -170,7 +170,7 @@
 <!-- All the replies -->
           <% if post.replies.count > 0 %>
             <div class="replies-container hide">
-              <% post.replies.each do |reply| %>
+              <% post.replies[0..-3].each do |reply| %>
                 <div class="reply-container" id="reply-<%= reply.id %>">
                   <div class="reply-wrapper">
                     <%= image_tag reply.user.photo, class: "avatar" %>
@@ -196,6 +196,7 @@
               </div>
             <% end %>
           </div>
+          <div class="see-less hide">See less</div>
           <% end %>
 
 
