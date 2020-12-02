@@ -40,7 +40,7 @@
         <%= link_to "Add a reply", "##{dom_id(discussion)}", class: "btn btn-success submit-button reply-button", data: { toggle: 'collapse' }, role: 'button', 'aria-expanded' => false %>
       </div>
         <% discussion.replies.each do |reply|  %>
-          <div class="card-reply">
+          <div class="card-reply" id="reply-<%= reply.id %>">
             <div class="discussion-top">
               <%= cl_image_tag(reply.user.photo.key, class: "avatar") %>
               <div class="user-date">
