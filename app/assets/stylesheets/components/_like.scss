@@ -1,11 +1,11 @@
-#thumbs{
+.thumbs-up{
   color: $ghost-white;
   &:hover {
     color: $dark-purple;
   }
 }
 
-#thumbs-up{
+.liked{
   color: $dark-purple;
   &:hover {
     color: $dark-purple;
