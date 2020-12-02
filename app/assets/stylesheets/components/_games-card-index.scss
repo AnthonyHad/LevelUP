@@ -5,7 +5,6 @@
   margin-bottom: 35px;
   border-radius: 10px;
   overflow: hidden;
-  margin-right: 8px;
   position: relative;
   transition: 0.3s ease;
   &:hover {
@@ -42,7 +41,7 @@
 
 
 .game-description {
-  color: $ghost-white;
+  color: #aeaeb2;
   font-family: $body-font;
   font-style: normal;
   font-weight: normal;
@@ -71,6 +70,10 @@
 }
 
 .game-card-text {
-  padding: 8px 10px 0px 8px
+  padding: 8px 10px 0px 8px;
+}
+
+.game-title {
+  color: $ghost-white;
 }
 
