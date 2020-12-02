@@ -96,5 +96,9 @@ document.addEventListener('turbolinks:load', () => {
   });
 });
 
+const modal = document.getElementById("welcome-modal")
+if (modal) {
+  document.getElementById("body-tag").classList.add("blur")
+}
 
 
