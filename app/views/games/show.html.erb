@@ -233,7 +233,6 @@
               <button id="close-button-container" type="button" class="close" data-dismiss="modal" aria-label="Close">
                 <small aria-hidden="true" id="close-button" class="mdi mdi-close-circle-outline text-white"></small>
               </button>
-
             </div>
             <div class="modal-body">
               <div class="post-form-body-top">
@@ -245,16 +244,16 @@
                   <%= f.input :content, placeholder: "What's new?", label: false %>
                   <%= f.input :category, as: :hidden, input_html: { value: params[:category] || "post" } %>
                   <div class="post-form-photo">
-                    <%= f.input :photo, as: :file, label: false %>
+                    <%= f.input :photo, as: :file, input_html: { class: 'd-none' }, label_html: { class: 'upload-photo'}, label: '📷 Upload a photo' %>
                   </div>
+                  <div class="line-form"></div>
                   <div class="modal-footer">
-                    <%= f.button :submit, "Post", class: "btn btn-for-post" %>
+                    <%= f.button :submit, "Post", class: "btn btn-success btn-for-post" %>
                   </div>
                 <% end %>
               </div>
             </div>
           </div>
-
         </div>
       </div>
     </div>

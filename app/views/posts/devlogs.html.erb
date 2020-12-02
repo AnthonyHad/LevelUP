@@ -52,10 +52,11 @@
                   <%= f.input :content, placeholder: "Content", label: false %>
                   <%= f.input :category, as: :hidden, input_html: { value: "devlog" } %>
                   <div class="post-form-photo">
-                    <%= f.input :photo, as: :file, label: false %>
+                    <%= f.input :photo, as: :file, input_html: { class: 'd-none' }, label_html: { class: 'upload-photo'}, label: '📷 Upload a photo' %>
                   </div>
+                  <div class="line-form"></div>
                   <div class="modal-footer">
-                    <%= f.button :submit, "Add now!", class: "btn btn-for-post" %>
+                    <%= f.button :submit, "Add now!", class: "btn btn-success btn-for-post" %>
                   </div>
                 <% end %>
               </div>

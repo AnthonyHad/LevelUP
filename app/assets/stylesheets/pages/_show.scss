@@ -119,20 +119,18 @@
 
 .post-form {
   padding-top: 14px;
-
-.form-control {
-  border: none;
-  border-radius: 10px;
-  height: 100px;
-  background-color: $secondary-background;
-  color: $ghost-white;
- }
+  .form-control{
+    border: none;
+    border-radius: 10px;
+    background-color: $secondary-background;
+    color: $ghost-white;
+  }
+  textarea {
+    height: 100px;
+  }
 }
 
 .post-form-photo {
-  margin-top: 21px;
-  padding: 14px 14px 0 14px;
-  border: 1px solid $light-purple;
   opacity: .7;
   border-radius: 10px;
 }
@@ -141,7 +139,9 @@
   color: $ghost-white;
 }
 
-
+.line-form{
+  border-bottom: 1px solid $light-purple;
+}
 
 
 
