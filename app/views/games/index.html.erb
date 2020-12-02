@@ -1,4 +1,21 @@
 
+<% unless session[:hide_welcome] %>
+  <div class="container">
+    <div class="welcome-form-style">
+      <div class="d-flex align-items-center flex-column p-1">
+        <h2>Hi there!</h2>
+        <h6>We are happy to have you browsing our handpicked games!</h6>
+        <p>Here's what you can do:</p>
+        <p><i class="fas fa-scroll"></i>Browse Games</p>
+        <p><i class="fas fa-heart"></i>Follow Games</p>
+        <p><i class="fas fa-headset"></i>Communicate with developers!</p>
+        <p><i class="fas fa-hat-wizard"></i>Give Feedback!!</p>
+        <%= link_to "Got it!", root_path(hide_welcome: true)%>
+      </div>
+    </div>
+  </div>
+<% end %>
+
 <div class="hero">
 <div id="carouselExampleControls" class="carousel slide" data-ride="carousel" data-interval="false">
   <div class="carousel-inner h-100 w-75 image-margin">
@@ -24,9 +41,6 @@
                 <%= link_to "+ Follow game!", game_followings_path(game), method: :post %>
             </div>
             <% end %>
-
-
-
         </div>
         </div>
       <% end %>
@@ -104,4 +118,3 @@
  -->
 
 <!-- submit_tag humanized_money_with_symbol(game.price), class:"game-card-button" -->
-

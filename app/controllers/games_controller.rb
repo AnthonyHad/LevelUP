@@ -2,6 +2,9 @@ class GamesController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index, :show]
 
   def index
+    if params[:hide_welcome]
+      session[:hide_welcome] = true
+    end
     if params[:search].present?
       search = params[:search]
       if search[:platform].last.present? && search[:price].present?
