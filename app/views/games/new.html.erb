@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container mt-3">
   <div class="row d-flex justify-content-center form-container">
     <div class="col-8 new-form">
       <h1 class="text-center">Add a game</h1>
@@ -7,9 +7,9 @@
           <%= f.input :description, placeholder: "Description" %>
           <%= f.input :category, placeholder: "Category" %>
           <%= f.association :platforms, placeholder: "Platforms", collection: Platform.all, as: :check_boxes %>
-          <%= f.input :price%>
-          <%= f.input :photos, as: :file, input_html: { multiple: true } %>
-          <%= f.button :submit, "Add now!", class: "btn btn-success submit-button" %>
+          <%= f.input :price %>
+          <%= f.input :photos, as: :file, input_html: { multiple: true, class: 'd-none' }, label_html: { class: 'upload-photo'}, label: '📷 Upload a photo' %>
+          <%= f.button :submit, "Add your game!", class: "btn btn-success submit-button" %>
         <% end %>
     </div>
   </div>
