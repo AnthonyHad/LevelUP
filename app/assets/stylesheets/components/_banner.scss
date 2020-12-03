@@ -51,16 +51,16 @@
       opacity: 0.43;
       margin: 0;
     }
+    .box-title{
+      margin: 0;
+      text-decoration: underline;
+      text-decoration-color: $dark-purple;
+      font-weight: bold;
+      font-size: 15px;
+    }    
   }
 }
 
-.box-title{
-  margin: 0;
-  text-decoration: underline;
-  text-decoration-color: $dark-purple;
-  font-weight: bold;
-  font-size: 15px;
-}
 
 .banner-top{
   display: flex;

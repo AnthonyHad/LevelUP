@@ -52,7 +52,7 @@
                 <div class="vl"></div>
               <% end %>
             </div>
-            <p class="discussion-content"><%= reply.content %></p>
+            <p class="discussion-content"><%= reply.content.html_safe %></p>
           </div>
         <% end %>
         <div class="collapse" id="<%= dom_id(discussion) %>">
