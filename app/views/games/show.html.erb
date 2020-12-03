@@ -180,7 +180,7 @@
               <div class="reply-container" id="reply-<%= reply.id %>">
                   <div class="reply-wrapper">
                     <%= cl_image_tag(reply.user.photo.key, class: "avatar") %>
-                    <p><%= reply.content %></p>
+                    <p><%= reply.content.html_safe  %></p>
                   </div>
                   <p class="time"><%= time_ago_in_words(reply.created_at) %></p>
               </div>

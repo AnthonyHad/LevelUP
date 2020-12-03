@@ -30,6 +30,8 @@ Rails.application.routes.draw do
     resources :payments, only: :new
   end
 
+  resources :users
+
   mount StripeEvent::Engine, at: '/stripe-webhooks'
 
 end

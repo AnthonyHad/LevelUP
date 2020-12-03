@@ -1,0 +1,68 @@
+<%#= render 'shared/banner' %>
+<div class="box">
+  <div class="box">
+    <div class="gallery-container">
+      <div class="gallery js-flickity" data-flickity-options='{ "wrapAround": true }'>
+        <% @user.games.map {|game| game.photos.map{ |photo| photo} }.flatten.each do | photo | %>
+          <div class="gallery-cell">
+            <%= cl_image_tag(photo.key, crop: :fill) %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="user-infos">
+  <div class="joined">
+    <%= @user.nickname%> joined on
+    <br>
+    <%= @user.created_at.strftime("%b %Y") %>
+  </div>
+  <div class="reviews">
+    Total Reviews
+    <br>
+    <%= @reviews.count %>
+    </div>
+  </div>
+  <div class="average-rating">
+    Average Rating
+    <br>
+    <%= @avg_rating %>
+  </div>
+  <div class="order">
+    Total Orders
+    <br>
+    <%= @orders.sum %>
+  </div>
+  <div class="visited">
+    Total Visits
+    <br>
+    <%= @visit_counter %>
+  </div>
+</div>
+<div class="user-games">
+  <% @user.games.each do |game| %>
+    <%= link_to game_path(game) do %>
+      <div class="game d-flex">
+        <% if game.photos.attached? %>
+          <%= cl_image_tag(game.photos.first.key, crop: :fill, height: 200, width: 200) %>
+        <% end %>
+        <div class="name">
+          <%= game.title %>
+        </div>
+        <div class="game-review">
+          Nr Reviews <%= game.reviews.count %>
+        </div>
+        <div class="game-published">
+          Published<%= game.created_at.strftime("%b %Y") %>
+        </div>
+        <div class="game-version">
+          Version 1.0.1
+        </div>
+        <div class="game-price">
+          Price<%= game.price %>
+        </div>
+      </div>
+    <% end %>
+  <% end %>
+</div>
