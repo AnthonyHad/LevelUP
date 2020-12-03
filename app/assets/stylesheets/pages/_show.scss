@@ -44,6 +44,9 @@
 #review-content-show-page {
   padding-top: 14px;
 }
+.card-show-left .review-rating {
+  padding-left: 14px;
+}
 
 
 // right side
@@ -103,13 +106,17 @@
   color: $ghost-white;
   border-radius: 24px;
   padding: 7px 14px;
+
   border: 1px solid $secondary-background;
 }
 
 .fake-form-container {
   display: flex;
   padding-bottom: 14px;
-  padding: 14px;
+  padding-top: 14px;
+  margin-left: 14px;
+  margin-right: 14px;
+  // padding: 14px;
   border-bottom: 1px solid $light-purple;
   .fake-form {
     width: 100%;
@@ -200,10 +207,10 @@
 }
 
 #comment-number {
-  margin: 14px;
-  padding-bottom: 7px;
-  padding-left: 80%;
-  border-bottom: 1px solid $light-purple;
+  margin: 0;
+  // padding-bottom: 7px;
+  // padding-left: 60%;
+  // border-bottom: 1px solid $light-purple;
   opacity: .6;
   font-size: 14px;
 }
@@ -213,10 +220,27 @@
 }
 .see-comments {
   padding-left: 14px;
-  // color: $light-background;
   opacity: .6;
 }
 
+.see-less {
+  padding-left: 14px;
+  opacity: .6;
+}
+
+.post-icons {
+  margin: 14px;
+  padding-bottom: 7px;
+  display: flex;
+  border-bottom: 1px solid $light-purple;
+  align-items: flex-end;
+  justify-content: flex-end;
+  .post-like {
+    font-size: 14px;
+    opacity: .6;
+    padding-right: 14px;
+  }
+}
 
 
 
