@@ -150,12 +150,33 @@
           <% end %>
 
 <!-- number of commnets -->
-          <% if post.replies.count == 1 %>
-            <p id="comment-number" data-post-count="<%= post.replies.count %>"><%= post.replies.count %> comment</p>
-          <% else %>
-            <p id="comment-number"><%= post.replies.count %> comments</p>
-          <% end %>
-          <hr>
+          <div class="post-icons">
+            <div class="post-like" data-controller="counter">
+              <% if current_user.liked? post %>
+                <i class="fas fa-thumbs-up liked"></i>
+              <% else %>
+                <%= link_to like_post_path(post), class:"thumbs-up", :"data-action" => "click->counter#refresh_post", :"data-id" => "#{post.id}", method: :put, remote: :true do %>
+                  <i class="fas fa-thumbs-up"></i>
+                <% end %>
+              <% end %>
+              <div class="counter">
+                <span id="post-<%= post.id %>" data-target="counter.count"><%= post.get_likes.size %></span>
+                <% if post.get_likes.size == 1 %>
+                  <p class="text-like">like</p>
+                <% else %>
+                  <p class="text-like">likes</p>
+                <% end %>
+              </div>
+            </div>
+
+            <% if post.replies.count == 1 %>
+              <p id="comment-number" data-post-count="<%= post.replies.count %>"><%= post.replies.count %> comment</p>
+            <% else %>
+              <p id="comment-number"><%= post.replies.count %> comments</p>
+            <% end %>
+  <!-- likes -->
+
+          </div>
 
 <!-- All the replies -->
           <% if post.replies.count > 0 %>
@@ -180,7 +201,7 @@
               <div class="reply-container" id="reply-<%= reply.id %>">
                   <div class="reply-wrapper">
                     <%= cl_image_tag(reply.user.photo.key, class: "avatar") %>
-                    <p><%= reply.content.html_safe  %></p>
+                    <p><%= reply.content.html_safe %></p>
                   </div>
                   <p class="time"><%= time_ago_in_words(reply.created_at) %></p>
               </div>
