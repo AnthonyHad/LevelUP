@@ -5,21 +5,11 @@
   <div class="box">
     <div class="gallery-container">
       <div class="gallery js-flickity" data-flickity-options='{ "wrapAround": true }'>
-        <div class="gallery-cell">
-          <%= cl_image_tag(@game.photos.last.key, crop: :fill) %>
-        </div>
-        <div class="gallery-cell">
-          <%= cl_image_tag(@game.photos.first.key, crop: :fill) %>
-        </div>
-        <div class="gallery-cell">
-          <%= cl_image_tag(@game.photos.last.key, crop: :fill) %>
-        </div>
-        <div class="gallery-cell">
-          <%= cl_image_tag(@game.photos.first.key, crop: :fill) %>
-        </div>
-        <div class="gallery-cell">
-          <%= cl_image_tag(@game.photos.last.key, crop: :fill) %>
-        </div>
+        <% @game.photos.each do | photo | %>
+          <div class="gallery-cell">
+            <%= cl_image_tag(photo.key, crop: :fill) %>
+          </div>
+        <% end %>
       </div>
     </div>
 
