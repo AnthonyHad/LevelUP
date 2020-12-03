@@ -59,13 +59,13 @@
       <div class="system-icons">
         <% @game.platforms.each do |platform| %>
           <% if platform.name == "Windows" %>
-            <i class="fab fa-windows"></i>
+            <i class="fab fa-windows platform-icon" ></i>
           <% elsif platform.name == "MacOS" %>
-            <i class="fab fa-apple"></i>
+            <i class="fab fa-apple platform-icon"></i>
           <% elsif platform.name == "Linux" %>
-            <i class="fab fa-linux"></i>
+            <i class="fab fa-linux platform-icon"></i>
             <% elsif platform.name == "Web" %>
-            <i class="fas fa-globe-europe"></i>
+            <i class="fas fa-globe-europe platform-icon"></i>
           <% end %>
         <% end %>
       </div>
@@ -76,7 +76,7 @@
       <div class="banner-order">
         <%= form_tag orders_path do %>
           <%= hidden_field_tag 'game_id', @game.id %>
-          <%= submit_tag 'Buy Now', class: 'btn btn-primary' %>
+          <%= submit_tag 'Buy Now', class: 'banner-buy-button' %>
         <% end %>
         <h3><%= humanized_money_with_symbol(@game.price)%></h3>
       </div>
