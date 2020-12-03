@@ -11,7 +11,7 @@
     <div class="carousel-item <%= 'active' if index.zero? %> h-100">
       <%= link_to game_path(game), class:"text-decoration-none w-75" do %>
         <div class="d-flex h-100">
-        <%= cl_image_tag(game.photos.first.key, crop: :fit, class:"d-block h-100  ml-0 game-image") %>
+        <%= cl_image_tag(game.photos.last.key, crop: :fit, class:"d-block h-100  ml-0 game-image") %>
         <div class="image-sidebox">
           <h4><%= game.title %></h4>
           <p class="game-tag"> <%= "##{game.category}"  %> </p>
@@ -82,7 +82,7 @@
             <%= link_to game_path(game), class:"text-decoration-none" do %>
                 <div class="games-card">
                   <div class="game-card-info">
-                    <%= cl_image_tag(game.photos.last.key, class: "game-image") %>
+                    <%= cl_image_tag(game.photos.first.key, class: "game-image") %>
                     <div class="game-card-text">
                       <p class="mb-0 game-title"><%= game.title %></p>
                       <p class="game-tag"><%="##{game.category}"%></p>
