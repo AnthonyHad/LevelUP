@@ -177,7 +177,18 @@
   <!-- likes -->
 
           </div>
-
+<!-- One reply-->
+          <% if post.replies.count == 1 %>
+            <div class="replies-container">
+                <div class="reply-container" id="reply-<%= post.replies[-1].id %>">
+                  <div class="reply-wrapper">
+                    <%= cl_image_tag(post.replies[-1].user.photo.key, class: "avatar") %>
+                    <p><%= post.replies[-1].content.html_safe %></p>
+                  </div>
+                  <p class="time"><%= time_ago_in_words(post.replies[-1].created_at) %></p>
+                </div>
+            </div>
+          <% end %>
 <!-- All the replies -->
           <% if post.replies.count > 0 %>
             <div class="replies-container hide">
