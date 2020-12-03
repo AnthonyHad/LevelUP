@@ -43,7 +43,7 @@
         <div>
         <p class="box-title">Reviews</p>
         <% if @game.reviews.empty? %>
-          <p class="box-info"><i>0</i></p>
+          <p class="box-info">0</p>
         <% else %>
           <% @review_tally = 0.00 %>
           <% @game.reviews.each do |review| %>
