@@ -94,11 +94,11 @@ document.addEventListener('turbolinks:load', () => {
       event.currentTarget.classList.replace("follow-button", "following-button");
     })
   });
+  const modal = document.getElementById("welcome-modal")
+  if (modal) {
+    document.getElementById("body-tag").classList.add("blur")
+  }
 });
 
-const modal = document.getElementById("welcome-modal")
-if (modal) {
-  document.getElementById("body-tag").classList.add("blur")
-}
 
 
