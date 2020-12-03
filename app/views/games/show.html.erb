@@ -132,7 +132,7 @@
         <div class="card-show-right">
           <div class="card-show-header">
             <div class="inner-show-header">
-            <%= image_tag @game.user.photo, class: "avatar" %>
+            <%= cl_image_tag(@game.user.photo.key, class: "avatar") %>
               <span class="user-date">
                 <h2><%= post.user.nickname %></h2>
                 <p class="time"><%= time_ago_in_words(post.created_at) %></p>
@@ -173,7 +173,7 @@
               <% post.replies[0..-3].each do |reply| %>
                 <div class="reply-container" id="reply-<%= reply.id %>">
                   <div class="reply-wrapper">
-                    <%= image_tag reply.user.photo, class: "avatar" %>
+                    <%= cl_image_tag(reply.user.photo.key, class: "avatar") %>
                     <p><%= reply.content %></p>
                   </div>
                   <p class="time"><%= time_ago_in_words(reply.created_at) %></p>
@@ -189,7 +189,7 @@
             <% post.replies[-2..-1].each do |reply| %>
               <div class="reply-container" id="reply-<%= reply.id %>">
                   <div class="reply-wrapper">
-                    <%= image_tag reply.user.photo, class: "avatar" %>
+                    <%= cl_image_tag(reply.user.photo.key, class: "avatar") %>
                     <p><%= reply.content %></p>
                   </div>
                   <p class="time"><%= time_ago_in_words(reply.created_at) %></p>
@@ -203,7 +203,7 @@
 <!-- Form for 1st tier reply-->
           <div class="card-show-reply">
             <%= simple_form_for([post, Reply.new], remote: true, html: {class: 'form-inline'}, authenticity_token: true) do |f| %>
-              <%= image_tag current_user.photo, class: "avatar-small" %>
+              <%= cl_image_tag(current_user.photo.key, class: "avatar-small") %>
               <%= f.input :content, placeholder: "Comment on that...", label: false %>
 
             <% end  %>
@@ -236,7 +236,7 @@
             </div>
             <div class="modal-body">
               <div class="post-form-body-top">
-                <%= image_tag @game.user.photo, class: "avatar" %>
+                <%= cl_image_tag(@game.user.photo.key, class: "avatar") %>
                 <span>@<%= @game.user.nickname %></span>
               </div>
               <div class="post-form">
