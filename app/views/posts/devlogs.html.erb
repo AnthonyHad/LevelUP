@@ -34,7 +34,7 @@
                 <p class="text-like">like</p>
               <% else %>
                 <p class="text-like">likes</p>
-              <% end %>                
+              <% end %>
             </div>
           </div>
         </div>
@@ -60,7 +60,7 @@
             </div>
             <div class="modal-body">
               <div class="post-form-body-top">
-                <%= image_tag @game.user.photo, class: "avatar" %>
+                <%= cl_image_tag(@game.user.photo.key, class: "avatar")%>
                 <span>@<%= @game.user.nickname %></span>
               </div>
               <div class="post-form">
