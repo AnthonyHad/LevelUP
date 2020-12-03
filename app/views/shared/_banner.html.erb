@@ -33,13 +33,17 @@
           <p class="box-info"><%= @game.orders.length %></p>
         </div>
         <div>
+          <p class="box-title">Views</p>
+          <p class="box-info"><%= @game.visit_counter %></p>
+        </div>
+        <div>
           <p class="box-title">Threads</p>
           <p class="box-info"><%= @game.posts.where(category: "discussion").length %></p>
         </div>
         <div>
         <p class="box-title">Reviews</p>
         <% if @game.reviews.empty? %>
-          <p class="box-info"><i>No reviews available</i></p>
+          <p class="box-info"><i>0</i></p>
         <% else %>
           <% @review_tally = 0.00 %>
           <% @game.reviews.each do |review| %>

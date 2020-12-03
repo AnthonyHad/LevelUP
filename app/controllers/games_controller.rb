@@ -51,6 +51,7 @@ class GamesController < ApplicationController
     @game = Game.find(params[:id])
     @posts = @game.posts.where(category: 'post')
     @post = Post.new
+    @game.increase_visit
   end
 
   def new
