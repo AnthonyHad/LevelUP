@@ -10,6 +10,16 @@
             <%= cl_image_tag(photo.key, crop: :fill) %>
           </div>
         <% end %>
+        <% if @game.photos.length < 5 %>
+            <% @count = 5 - @game.photos.length %>
+            <% @count.times do  %>
+              <% @game.photos.each do | photo | %>
+                <div class="gallery-cell">
+                  <%= cl_image_tag(photo.key, crop: :fill) %>
+                </div>
+              <% end %>
+            <% end %>
+        <% end %>
       </div>
     </div>
 
