@@ -16,7 +16,7 @@ class PostsController < ApplicationController
       elsif @post.category == "devlog"
         redirect_to devlogs_game_posts_path, notice: "Devlog post was succesfully created."
       else
-        redirect_to game_path(@game), notice: "Post was succesfully created."
+        redirect_to game_path(@game, anchor: "anchor-for-posts"), notice: "Post was succesfully created."
       end
     else
       render :new
