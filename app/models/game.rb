@@ -20,4 +20,9 @@ class Game < ApplicationRecord
    using: {
     tsearch: {prefix: true}
    }
+
+  def increase_visit
+   self.visit_counter += 1
+   save!
+  end
 end
