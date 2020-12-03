@@ -20,7 +20,7 @@
     <div class="col-lg-12 col-xl-5">
       <div class="row-left">
         <div class="card-show-left">
-        <h5>Discussions</h5>
+        <h5>Latest Discussions</h5>
           <% if @game.posts.where(category: 'discussion').empty? %>
             <p>No discussion available</p>
           <% else %>
@@ -46,7 +46,7 @@
       </div>
 
       <div class="card-show-left">
-        <h5>Devlogs</h5>
+        <h5>Latest Devlogs</h5>
         <% if @game.posts.where(category: 'devlog').empty? %>
             <p>No devlogs available</p>
         <% else %>
@@ -76,7 +76,7 @@
       </div>
 
       <div class="card-show-left">
-        <h5>Reviews</h5>
+        <h5>Latest Reviews</h5>
         <% if @game.reviews.empty? %>
           <p>No reviews available</p>
         <% else %>
@@ -107,7 +107,7 @@
 <!-- Form visible only to the game owner to make a post -->
       <% if @game.user == current_user%>
         <div class=" card-show-right">
-            <div class="fake-form-container">
+            <div class="fake-form-container" id="anchor-for-posts">
               <%= cl_image_tag(@game.user.photo.key, class: "avatar") %>
               <div class="fake-form" data-toggle="modal" data-target="#myModal">What's new?</div>
             </div>
