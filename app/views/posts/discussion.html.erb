@@ -1,6 +1,9 @@
 <%= render 'shared/banner' %>
 <div class="box">
   <div class="cards-post">
+    <% if @game.posts.where(category: "discussion").empty? %>
+      <p>No posts available yet</p>
+    <% end %>    
     <% @discussion.reverse.each do |discussion| %>
       <div class="card-discussion">
         <div class="discussion-top">

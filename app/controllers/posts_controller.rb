@@ -1,4 +1,5 @@
 class PostsController < ApplicationController
+  skip_before_action :authenticate_user!, only: [:discussion, :devlogs]
 
   def new
     @post = Post.new

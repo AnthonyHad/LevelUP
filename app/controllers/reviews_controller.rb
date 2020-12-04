@@ -1,4 +1,6 @@
 class ReviewsController < ApplicationController
+  skip_before_action :authenticate_user!, only: [:index]
+
   def index
     @game = Game.find(params[:game_id])
     @review = Review.new
@@ -24,6 +26,6 @@ class ReviewsController < ApplicationController
   private
 
   def review_params
-    params.require(:review).permit(:content, :rating)
+    params.require(:review).permit(:content, :rating, :photo)
   end
 end
