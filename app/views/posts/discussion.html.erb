@@ -3,7 +3,7 @@
   <div class="cards-post">
     <% if @game.posts.where(category: "discussion").empty? %>
       <p>No posts available yet</p>
-    <% end %>    
+    <% end %>
     <% @discussion.reverse.each do |discussion| %>
       <div class="card-discussion">
         <div class="discussion-top">
@@ -23,12 +23,14 @@
             <%= cl_image_tag(discussion.photo.key, class: "image-post") %>
           <% end %>
           <div class="post-like" data-controller="counter">
-            <% if current_user.liked? discussion %>
-              <i class="fas fa-thumbs-up liked"></i>
-            <% else %>
-              <%= link_to like_post_path(discussion), class:"thumbs-up", :"data-action" => "click->counter#refresh_discussion", :"data-id" => "#{discussion.id}", method: :put, remote: :true do %>
-                <i class="fas fa-thumbs-up"></i>
-              <% end %>
+            <% if user_signed_in? %>
+              <% if current_user.liked? discussion %>
+                <i class="fas fa-thumbs-up liked"></i>
+              <% else %>
+                <%= link_to like_post_path(discussion), class:"thumbs-up", :"data-action" => "click->counter#refresh_discussion", :"data-id" => "#{discussion.id}", method: :put, remote: :true do %>
+                  <i class="fas fa-thumbs-up"></i>
+                <% end %>
+            <% end %>
             <% end %>
             <div class="counter">
               <span id="discussion-<%= discussion.id %>" data-target="counter.count"><%= discussion.get_likes.size %></span>
@@ -85,8 +87,10 @@
             </div>
             <div class="modal-body">
               <div class="post-form-body-top">
-                <%= cl_image_tag(current_user.photo.key, class: "avatar") %>
-                <span>@<%= current_user.nickname %></span>
+                <% if user_signed_in? %>
+                  <%= cl_image_tag(current_user.photo.key, class: "avatar") %>
+                  <span>@<%= current_user.nickname %></span>
+                <% end %>
               </div>
               <div class="post-form">
                 <%= simple_form_for [@game, @post] do |f| %>

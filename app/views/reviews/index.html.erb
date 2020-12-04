@@ -46,8 +46,10 @@
             </div>
             <div class="modal-body">
               <div class="post-form-body-top">
-                <%= cl_image_tag(current_user.photo.key, class: "avatar") %>
-                <span>@<%= current_user.nickname %></span>
+                <% if user_signed_in? %>
+                  <%= cl_image_tag(current_user.photo.key, class: "avatar") %>
+                  <span>@<%= current_user.nickname %></span>
+                <% end %>
               </div>
               <div class="post-form">
                 <%= simple_form_for [@game, @review] do |f| %>
