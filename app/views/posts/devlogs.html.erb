@@ -1,6 +1,9 @@
 <%= render 'shared/banner' %>
 <div class="box">
   <div class="cards-post">
+    <% if @game.posts.where(category: "devlog").empty? %>
+      <p>No devlogs available yet</p>
+    <% end %>    
     <% @devlogs.reverse.each do |devlog| %>
       <div class="card-devlogs">
         <div class="vl"></div>
