@@ -4,7 +4,7 @@
       <% if @game.reviews.empty? %>
         <p>No reviews available</p>
       <% end %>
-      <% @game.reviews.each do |review| %>
+      <% @game.reviews.reverse.each do |review| %>
         <div class="card-review">
           <div class="discussion-top">
             <%= cl_image_tag(review.user.photo.key, class: "avatar") %>
