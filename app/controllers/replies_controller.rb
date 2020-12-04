@@ -5,7 +5,7 @@ class RepliesController < ApplicationController
     @reply.post = Post.find(params[:post_id])
     match_data = @reply.content.match(/@(\w+)/)
     if match_data
-      @reply.content = @reply.content.gsub(match_data[0], "<a href='/games/26'>#{match_data[0]}</a> ")
+      @reply.content = @reply.content.gsub(match_data[0], "<a href='#{user_path(@reply.user)}'>#{match_data[0]}</a> ")
     end
 
     if @reply.save

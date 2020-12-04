@@ -3,66 +3,103 @@
   <div class="box">
     <div class="gallery-container">
       <div class="gallery js-flickity" data-flickity-options='{ "wrapAround": true }'>
-        <% @user.games.map {|game| game.photos.map{ |photo| photo} }.flatten.each do | photo | %>
-          <div class="gallery-cell">
-            <%= cl_image_tag(photo.key, crop: :fill) %>
+          <% @user.games.map {|game| game.photos.map{ |photo| photo} }.flatten.each do | photo | %>
+            <div class="gallery-cell">
+              <%= cl_image_tag(photo.key, crop: :fill) %>
+            </div>
+          <% end %>   
+      </div>
+    </div>
+  </div>
+</div>
+<div class="box">
+  <div class="box">
+    <div class="box">
+      <div class="user-box">
+        <%= cl_image_tag(@user.photo.key, class: "avatar") %>
+        <div class="user-infos">
+          <div class="joined">
+            <div class="joined-top">
+              <h2><%= @user.nickname%></h2> 
+            </div>
+            <p class="box-info">joined on <%= @user.created_at.strftime("%b %Y") %></p>
           </div>
+          <div class="user-stat">
+            <div class="visited">
+              <p class="box-info"><%= @visit_counter %></p>
+              <p class="box-title">Visits</p>
+            </div>
+            <div class="order">
+              <p class="box-info"><%= @orders.sum %></p>
+              <p class="box-title">Orders</p>
+            </div>
+            <div class="user-posts">
+              <p class="box-info"><%= @posts.count %></p>
+              <p class="box-title">Posts</p>
+            </div>
+            <div class="reviews">
+              <p class="box-info"><%= @reviews.count %></p>
+              <p class="box-title">Reviews</p>
+            </div>
+            <div class="average-rating">
+              <p class="box-info"><%= @avg_rating %></p>
+              <p class="box-title">Avg. Rating</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="user-games">
+        <% @user.games.each do |game| %>
+          <%= link_to game_path(game), class:"user-links" do %>
+            <div class="ugames-info">
+              <% if game.photos.attached? %>
+                <%= cl_image_tag(game.photos.first.key, crop: :fill, height: 200, width: 200) %>
+              <% end %>
+              <div class="ugames-details">
+                <div class="name">
+                  <h2><%= game.title %></h2>
+                </div>
+                <div class="game-published">
+                  <p class="box-info">Published date: <%= game.created_at.strftime("%b %Y") %></p>
+                </div>
+                <div class="ugames-stat">
+                  <div class="game-price">
+                    <p class="box-info">£<%= game.price %></p>
+                    <p class="box-title">Price</p>
+                  </div>
+                  <div class="game-review">
+                    <% @review_tally = 0 %>
+                    <% game.reviews.each do |review| %>
+                      <% @review_tally += review.rating %>
+                    <% end %>
+                    <% @review_tally = (@review_tally / game.reviews.count) if game.reviews.count >= 1 %>
+                    <% if @review_tally == 0 %>
+                      <p class="box-info">-</p>
+                    <% else %>
+                      <% @review_tally.round.times do %>
+                      <i class="fas fa-star"></i>
+                      <% end %>
+                    <% end %>
+                    <p class="box-title">Review</p>
+                  </div>
+                  <div class="game-update">
+                    <% if game.posts.where(category: "post").length == 0 %>
+                      <p class="box-info">-</p>
+                    <% else %>
+                      <p class="box-info"><%= game.posts.where(category: "post").last.created_at.strftime("%d/%m/%Y")%></p>
+                    <% end %>
+                    <p class="box-title">Last update</p>
+                  </div>
+                  <div class="game-version">
+                   <p class="box-info">1.0.1</p>
+                    <p class="box-title">Version</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          <% end %>
         <% end %>
       </div>
     </div>
   </div>
-</div>
-<div class="user-infos">
-  <div class="joined">
-    <%= @user.nickname%> joined on
-    <br>
-    <%= @user.created_at.strftime("%b %Y") %>
-  </div>
-  <div class="reviews">
-    Total Reviews
-    <br>
-    <%= @reviews.count %>
-    </div>
-  </div>
-  <div class="average-rating">
-    Average Rating
-    <br>
-    <%= @avg_rating %>
-  </div>
-  <div class="order">
-    Total Orders
-    <br>
-    <%= @orders.sum %>
-  </div>
-  <div class="visited">
-    Total Visits
-    <br>
-    <%= @visit_counter %>
-  </div>
-</div>
-<div class="user-games">
-  <% @user.games.each do |game| %>
-    <%= link_to game_path(game) do %>
-      <div class="game d-flex">
-        <% if game.photos.attached? %>
-          <%= cl_image_tag(game.photos.first.key, crop: :fill, height: 200, width: 200) %>
-        <% end %>
-        <div class="name">
-          <%= game.title %>
-        </div>
-        <div class="game-review">
-          Nr Reviews <%= game.reviews.count %>
-        </div>
-        <div class="game-published">
-          Published<%= game.created_at.strftime("%b %Y") %>
-        </div>
-        <div class="game-version">
-          Version 1.0.1
-        </div>
-        <div class="game-price">
-          Price<%= game.price %>
-        </div>
-      </div>
-    <% end %>
-  <% end %>
 </div>
