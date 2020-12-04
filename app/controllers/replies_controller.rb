@@ -3,9 +3,14 @@ class RepliesController < ApplicationController
     @reply = Reply.new(reply_params)
     @reply.user = current_user
     @reply.post = Post.find(params[:post_id])
+    @users = User.all
     match_data = @reply.content.match(/@(\w+)/)
     if match_data
-      @reply.content = @reply.content.gsub(match_data[0], "<a href='#{user_path(@reply.user)}'>#{match_data[0]}</a> ")
+      if @users.where(nickname: match_data[1]).ids[0].nil?
+        @reply.content = match_data
+      else
+        @reply.content = @reply.content.gsub(match_data[0], "<a href='#{user_path(@users.where(nickname: match_data[1]).ids[0])}'>#{match_data[0]}</a> ")
+      end
     end
 
     if @reply.save
