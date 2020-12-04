@@ -3,7 +3,7 @@
   <div class="cards-post">
     <% if @game.posts.where(category: "devlog").empty? %>
       <p>No devlogs available yet</p>
-    <% end %>    
+    <% end %>
     <% @devlogs.reverse.each do |devlog| %>
       <div class="card-devlogs">
         <div class="vl"></div>
@@ -24,11 +24,13 @@
             <%= cl_image_tag(devlog.photo.key, class: "image-post") %>
           <% end %>
           <div class="post-like" data-controller="counter">
-            <% if current_user.liked? devlog %>
-              <i class="fas fa-thumbs-up liked"></i>
-            <% else %>
-              <%= link_to like_post_path(devlog), class:"thumbs-up", :"data-action" => "click->counter#refresh_devlogs", :"data-id" => "#{devlog.id}", method: :put, remote: :true do %>
-                <i class="fas fa-thumbs-up"></i>
+            <% if user_signed_in? %>
+              <% if current_user.liked? devlog %>
+                <i class="fas fa-thumbs-up liked"></i>
+              <% else %>
+                <%= link_to like_post_path(devlog), class:"thumbs-up", :"data-action" => "click->counter#refresh_devlogs", :"data-id" => "#{devlog.id}", method: :put, remote: :true do %>
+                  <i class="fas fa-thumbs-up"></i>
+                <% end %>
               <% end %>
             <% end %>
             <div class="counter">

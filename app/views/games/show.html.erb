@@ -162,11 +162,13 @@
 <!-- number of commnets -->
           <div class="post-icons">
             <div class="post-like" data-controller="counter">
-              <% if current_user.liked? post %>
-                <i class="fas fa-thumbs-up liked"></i>
-              <% else %>
-                <%= link_to like_post_path(post), class:"thumbs-up", :"data-action" => "click->counter#refresh_post", :"data-id" => "#{post.id}", method: :put, remote: :true do %>
-                  <i class="fas fa-thumbs-up"></i>
+              <% if user_signed_in? %>
+                <% if current_user.liked? post %>
+                  <i class="fas fa-thumbs-up liked"></i>
+                <% else %>
+                  <%= link_to like_post_path(post), class:"thumbs-up", :"data-action" => "click->counter#refresh_post", :"data-id" => "#{post.id}", method: :put, remote: :true do %>
+                    <i class="fas fa-thumbs-up"></i>
+                  <% end %>
                 <% end %>
               <% end %>
               <div class="counter">
@@ -235,8 +237,10 @@
 <!-- Form for 1st tier reply-->
           <div class="card-show-reply">
             <%= simple_form_for([post, Reply.new], remote: true, html: {class: 'form-inline'}, authenticity_token: true) do |f| %>
-              <%= cl_image_tag(current_user.photo.key, class: "avatar-small") %>
-              <%= f.input :content, placeholder: "Comment on that...", label: false %>
+              <% if user_signed_in? %>
+                <%= cl_image_tag(current_user.photo.key, class: "avatar-small") %>
+                <%= f.input :content, placeholder: "Comment on that...", label: false %>
+              <% end %>
 
             <% end  %>
           </div>
